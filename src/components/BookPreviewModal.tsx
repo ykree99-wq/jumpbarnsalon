@@ -2,6 +2,9 @@ import React from 'react';
 import { X, ExternalLink, Calendar, BookOpen, ShoppingBag, Sparkles, Tag } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PictureBook } from '../types';
+import DragDropDropzone from './DragDropDropzone';
+import EditableText from './EditableText';
+import { useStudioData } from '../context/StudioDataContext';
 
 interface BookPreviewModalProps {
   isOpen: boolean;
@@ -11,6 +14,8 @@ interface BookPreviewModalProps {
 }
 
 export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }: BookPreviewModalProps) {
+  const { updateImage } = useStudioData();
+
   if (!isOpen) return null;
 
   const displayBook = book || {
@@ -23,7 +28,7 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
     badge: '★ 초등 3학년 교과서 수록',
     description: "'규중칠우쟁론기'라는 옛수필로 만든 그림책. 바늘, 실, 골무, 다리미, 가위, 자, 인두들은 서로 자기가 제일 중요하다고 뽐내다가 결국 모두가 함께 소중하다는 것을 깨닫는답니다.",
     summary: '아씨가 잠든 사이 일곱 바느질 도구들이 각자 자신이 으뜸이라 자랑하지만, 서로가 합쳐져야 예쁜 옷이 완성됨을 깨닫는 유쾌한 해학극.',
-    coverImage: '/slides/slide-1.png',
+    coverImage: '/books/[IMG-6].jpg',
   };
 
   return (
@@ -50,18 +55,21 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
             <X className="w-5 h-5 text-black" />
           </button>
 
-          {/* Left: Image Container */}
-          <div className="w-full md:w-1/2 h-72 md:h-auto bg-white flex items-center justify-center p-8 border-b md:border-b-0 md:border-r border-black/5 relative">
-            <div className="relative group w-full h-full flex items-center justify-center">
+          {/* Left: Image Container with DragDropZone */}
+          <div className="w-full md:w-1/2 h-72 md:h-auto bg-white flex items-center justify-center p-6 border-b md:border-b-0 md:border-r border-black/5 relative">
+            <DragDropDropzone
+              onImageDropped={(dataUrl) => updateImage('book', displayBook.id, dataUrl)}
+              className="relative group w-full h-full flex items-center justify-center rounded-2xl border border-black/5 p-4 hover:shadow-lg transition-all"
+            >
               <img
                 src={displayBook.coverImage}
                 alt={displayBook.title}
                 className="max-w-full max-h-[380px] object-contain shadow-2xl rounded-xl transform group-hover:scale-105 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
-            </div>
+            </DragDropDropzone>
             {displayBook.badge && (
-              <span className="absolute top-6 left-6 px-3.5 py-1.5 bg-[#B7102A] text-white text-[10px] font-black tracking-widest rounded-full uppercase shadow-lg">
+              <span className="absolute top-6 left-6 px-3.5 py-1.5 bg-[#B7102A] text-white text-[10px] font-black tracking-widest rounded-full uppercase shadow-lg z-10">
                 {displayBook.badge}
               </span>
             )}
@@ -84,14 +92,26 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
                       {displayBook.number}
                     </span>
                   )}
-                  <h2 className="text-3xl md:text-4xl font-serif font-black text-[#1C1C18] leading-tight">
-                    {displayBook.title}
+                  <h2 className="text-3xl md:text-4xl font-serif font-black text-[#1C1C18] leading-tight flex-1">
+                    <EditableText
+                      category="book"
+                      id={displayBook.id}
+                      field="title"
+                      value={displayBook.title}
+                      tagName="span"
+                    />
                   </h2>
                 </div>
                 {displayBook.englishTitle && (
-                  <p className="text-black/40 font-mono text-xs font-bold uppercase tracking-widest">
-                    {displayBook.englishTitle}
-                  </p>
+                  <div className="text-black/40 font-mono text-xs font-bold uppercase tracking-widest">
+                    <EditableText
+                      category="book"
+                      id={displayBook.id}
+                      field="englishTitle"
+                      value={displayBook.englishTitle}
+                      tagName="span"
+                    />
+                  </div>
                 )}
               </div>
 
@@ -117,21 +137,39 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
                 {displayBook.authorText && (
                   <div className="flex flex-col">
                     <span className="text-[10px] text-black/30 font-bold uppercase mb-1">Author / Publisher</span>
-                    <span className="text-xs font-bold text-black/70">
-                      {displayBook.authorText}
-                    </span>
+                    <div className="text-xs font-bold text-black/70">
+                      <EditableText
+                        category="book"
+                        id={displayBook.id}
+                        field="authorText"
+                        value={displayBook.authorText}
+                        tagName="span"
+                      />
+                    </div>
                   </div>
                 )}
               </div>
 
               <div className="space-y-4">
-                <p className="text-sm text-black/80 leading-relaxed font-sans font-medium">
-                  {displayBook.description}
-                </p>
+                <div className="text-sm text-black/80 leading-relaxed font-sans font-medium">
+                  <EditableText
+                    category="book"
+                    id={displayBook.id}
+                    field="description"
+                    value={displayBook.description}
+                    tagName="p"
+                  />
+                </div>
                 {displayBook.summary && (
                   <div className="p-4 bg-white/70 rounded-2xl border border-black/5 text-xs text-black/60 leading-relaxed">
                     <span className="font-bold text-[#B7102A] block mb-1">주요 줄거리</span>
-                    {displayBook.summary}
+                    <EditableText
+                      category="book"
+                      id={displayBook.id}
+                      field="summary"
+                      value={displayBook.summary}
+                      tagName="p"
+                    />
                   </div>
                 )}
               </div>
