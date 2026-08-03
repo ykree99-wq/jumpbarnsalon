@@ -52,7 +52,7 @@ export const EXHIBITIONS: Exhibition[] = [
     location: '서울 성동구 성수이로 88',
     period: '2026. 08. 01 — 2026. 10. 15',
     status: '현재 전시중',
-    posterImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
+    posterImage: '/exhibitions/exhibition-1.png',
     description: '<아씨방 일곱 동무> 및 <넉 점 반>의 진품 원화 50여 점과 대형 K-Cuty 민화 호랑이 입체 오브제를 한자리에서 감상할 수 있는 감동적인 개인전입니다.',
     highlights: ['최초 공개 미발표 원화 스케치 15점', '실물 크기 규중칠우 캐릭터 포토존', '주말 작가 도슨트 & 사인회']
   },
@@ -64,7 +64,7 @@ export const EXHIBITIONS: Exhibition[] = [
     location: 'Bologna, Italy',
     period: '2026. 04. 10 — 2026. 04. 13',
     status: '전시 아카이브',
-    posterImage: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80',
+    posterImage: '/exhibitions/exhibition-2.png',
     description: '전 세계 그림책 거장들이 모이는 볼로냐 도서전에서 K-Cuty Folk Art의 아름다움과 전통 오방색의 신명을 알린 특별 초대전.',
     highlights: ['유럽 출판인 대상 스튜디오 세미나', '프랑스, 스페인 번역 출판 계약 조인']
   },
@@ -773,7 +773,7 @@ export const IP_CHARACTERS: IPCharacter[] = [
     traditionalRole: '한국 근대시화 속 아이의 천진성',
     kCutyTraits: '동글동글한 얼굴, 붉은 볼, 개나리색 댕기 머리와 깜찍한 짚신',
     colorHex: '#F4D03F',
-    image: '/slides/slide-2.png',
+    image: '/gallery/IMG_1838.JPG',
   },
   {
     id: 'tiger-minhwa',
@@ -785,7 +785,7 @@ export const IP_CHARACTERS: IPCharacter[] = [
     traditionalRole: '조선 민화 까치호랑이 (호작도)',
     kCutyTraits: '동그란 눈망울, 삐뚤빼뚤 튀어나온 송곳니, 앙증맞은 노란 얼룩무늬',
     colorHex: '#E67E22',
-    image: '/slides/slide-3.png',
+    image: '/gallery/IMG_1839.JPG',
   },
 ];
 

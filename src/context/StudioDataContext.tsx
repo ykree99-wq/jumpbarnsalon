@@ -127,7 +127,22 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
           if (saved) {
             const parsed = JSON.parse(saved);
             setSlides(SLIDESHOW_ARTWORKS);
-            if (parsed.exhibitions) setExhibitions(parsed.exhibitions);
+            if (parsed.exhibitions) {
+              const mergedEx = parsed.exhibitions.map((ex: any) => {
+                const defaultEx = EXHIBITIONS.find(e => e.id === ex.id);
+                const posterImage = (ex.posterImage && ex.posterImage.startsWith('data:image/'))
+                  ? ex.posterImage
+                  : (defaultEx?.posterImage || ex.posterImage);
+                return {
+                  ...(defaultEx || {}),
+                  ...ex,
+                  posterImage
+                };
+              });
+              setExhibitions(mergedEx);
+            } else {
+              setExhibitions(EXHIBITIONS);
+            }
             
             if (parsed.books) {
               const merged = parsed.books.map((b: any) => {
@@ -149,7 +164,24 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             }
             
             if (parsed.sketchbookNotes) setSketchbookNotes(parsed.sketchbookNotes);
-            setCharacters(IP_CHARACTERS);
+            
+            if (parsed.characters) {
+              const mergedChar = parsed.characters.map((c: any) => {
+                const defaultChar = IP_CHARACTERS.find(ic => ic.id === c.id);
+                const image = (c.image && c.image.startsWith('data:image/'))
+                  ? c.image
+                  : (defaultChar?.image || c.image);
+                return {
+                  ...(defaultChar || {}),
+                  ...c,
+                  image
+                };
+              });
+              setCharacters(mergedChar);
+            } else {
+              setCharacters(IP_CHARACTERS);
+            }
+
             if (parsed.portraitImage && parsed.portraitImage.startsWith('data:image/')) {
               setPortraitImage(parsed.portraitImage);
             } else {
