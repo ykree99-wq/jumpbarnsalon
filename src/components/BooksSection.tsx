@@ -246,10 +246,11 @@ export default function BooksSection({ onOpenBookModal }: BooksSectionProps) {
 }
 
 interface BookCardProps {
+  key?: React.Key;
   book: PictureBook;
   config: typeof GENRE_CONFIG[GenreFilter];
   onOpenBookModal: (book?: PictureBook) => void;
-  updateImage: (category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'portrait', id: string, imageDataUrl: string) => void;
+  updateImage: (category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'portrait' | 'gallery', id: string, imageDataUrl: string) => void;
 }
 
 function BookCard({ book, config, onOpenBookModal, updateImage }: BookCardProps) {

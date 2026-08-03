@@ -1,4 +1,4 @@
-import { PictureBook, IPCharacter, WorkshopSchedule, Testimonial, FAQItem, ObangsaekColor, Exhibition, NewsItem, SketchbookNote } from '../types';
+import { PictureBook, IPCharacter, WorkshopSchedule, Testimonial, FAQItem, ObangsaekColor, Exhibition, NewsItem, SketchbookNote, GalleryWork } from '../types';
 
 export const SLIDESHOW_ARTWORKS = [
   {

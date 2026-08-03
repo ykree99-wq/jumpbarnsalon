@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { useStudioData } from '../context/StudioDataContext';
 
 interface EditableTextProps {
-  category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character';
+  category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'gallery';
   id: string;
   field: string;
   value: string;
