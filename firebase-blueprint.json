@@ -1,0 +1,45 @@
+{
+  "collections": [
+    {
+      "collectionName": "studio_configs",
+      "description": "Stores site-wide configuration for the artist portfolio.",
+      "fields": [
+        {
+          "fieldName": "slides",
+          "type": "array",
+          "description": "Hero slideshow data."
+        },
+        {
+          "fieldName": "exhibitions",
+          "type": "array",
+          "description": "Exhibitions list."
+        },
+        {
+          "fieldName": "books",
+          "type": "array",
+          "description": "Picture books list."
+        },
+        {
+          "fieldName": "sketchbookNotes",
+          "type": "array",
+          "description": "Sketchbook notes list."
+        },
+        {
+          "fieldName": "characters",
+          "type": "array",
+          "description": "IP characters list."
+        },
+        {
+          "fieldName": "portraitImage",
+          "type": "string",
+          "description": "Artist portrait image data."
+        },
+        {
+          "fieldName": "lastUpdated",
+          "type": "timestamp",
+          "description": "Last update timestamp."
+        }
+      ]
+    }
+  ]
+}

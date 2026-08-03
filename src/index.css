@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Artistic brush stroke underline effect (Ryoji Arai line.svg style) */
+  .brush-underline {
+    position: relative;
+  }
+  .brush-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 6 Q 25 1, 50 7 T 100 5' stroke='%23B7102A' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transition: opacity 0.2s ease;
+  }
+
+  .brush-underline-gold::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 6 Q 25 1, 50 7 T 100 5' stroke='%23D99B00' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+
+  /* Traditional Korean Stamp / Seal (낙관) style */
+  .korean-seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #B7102A;
+    color: #B7102A;
+    font-weight: 900;
+    font-family: serif;
+    font-size: 11px;
+    line-height: 1;
+    border-radius: 4px;
+    background-color: rgba(183, 16, 42, 0.05);
+    box-shadow: 0 0 0 1px rgba(183, 16, 42, 0.1);
+    transform: rotate(-3deg);
+  }
+
+  /* Hand-drawn organic border box */
+  .sketch-border {
+    border: 2px solid #31302D;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  }
+}
+
+/* Custom smooth styling */
+body {
+  background-color: #FBFBFA;
+  color: #1C1C18;
+  font-family: 'Noto Sans KR', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Noto Serif KR', serif;
+}
+
+/* Smooth fade slideshow animations */
+@keyframes fadeInSlide {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-slide {
+  animation: fadeInSlide 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

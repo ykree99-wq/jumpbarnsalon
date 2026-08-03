@@ -1,0 +1,8 @@
+{
+  "name": "The Color Lab of Young-Kyoung Lee (이영경의 창작스튜디오)",
+  "description": "한국의 전통색채와 현대적 위트를 결합한 K-Cuty Folk Art & 이영경 작가의 대표 그림책(아씨방 일곱 동무, 넉 점 반 등)과 IP 창작 스튜디오",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
