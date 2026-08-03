@@ -380,8 +380,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '박꽃 순백 (Gourd White)', hex: '#FDFEFE' },
       { name: '태평양 남빛 (Deep Ocean)', hex: '#1B4F72' }
     ],
-    coverImage: '/books/안녕,야학당.jpg',
-    samplePages: ['/books/안녕,야학당.jpg']
+    coverImage: '/books/[IMG-5].jpg',
+    samplePages: ['/books/[IMG-5].jpg']
   },
 
   // --- 옛이야기 ---
@@ -457,8 +457,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '마오족 다홍 (Miao Red)', hex: '#C0392B' },
       { name: '은장식 은색 (Silver)', hex: '#BDC3C7' }
     ],
-    coverImage: '/books/[IMG-8].jpeg',
-    samplePages: ['/books/[IMG-8].jpeg']
+    coverImage: '/books/[IMG-8].jpg',
+    samplePages: ['/books/[IMG-8].jpg']
   },
   {
     id: 'kongsuk-patsuk',
@@ -520,8 +520,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '주먹이 황토 (Clay Gold)', hex: '#C87D55' },
       { name: '신명 초록 (Joy Green)', hex: '#2ECC71' }
     ],
-    coverImage: '/books/주먹이.jpg',
-    samplePages: ['/books/주먹이.jpg']
+    coverImage: '/books/[IMG-11].jpg',
+    samplePages: ['/books/[IMG-11].jpg']
   },
 
   // --- 우화와 생활 ---
@@ -578,15 +578,15 @@ export const PICTURE_BOOKS: PictureBook[] = [
     badge: '지구상 최초 맨발체조',
     tag: '건강과 활력 힐링',
     price: '13,500원',
-    description: '꿈이 있다면 내 몸을 스스로 돌볼 것! 남녀노소, 어른아이 할 것없이 내 몸은 내가 지킨다! \'맨손체조\' 아닌 지구상 최초, \'맨발체조!\'답니다. 잠들기전 따라하면 숙면을 돕고, 깨어난 후 따라하면 활기찬 하루 보장!',
+    description: '꿈이 있다면 내 몸을 스스로 돌볼 것! 남녀노소, 어른아이 할 것없이 내 몸은 내가 지킨다! \'맨손체조\' 아닌 지구상 최초, \'맨발체조!\'랍니다. 잠들기전 따라하면 숙면을 돕고, 깨어난 후 따라하면 활기찬 하루 보장!',
     summary: '지구상 최초의 \'맨발체조\'! 이불 위에서 아침저녁 따라 하며 남녀노소 누구나 내 몸을 아끼고 돌보게 하는 유쾌하고 유익한 힐링책.',
     characters: ['체조하는 어린이 & 어른들'],
     colorPalette: [
       { name: '이불 솜 분홍 (Quilt Pink)', hex: '#FFB6C1' },
       { name: '활력 노랑 (Energy Yellow)', hex: '#F39C12' }
     ],
-    coverImage: '/books/[IMG-14].jpeg',
-    samplePages: ['/books/[IMG-14].jpeg']
+    coverImage: '/books/[IMG-14].jpg',
+    samplePages: ['/books/[IMG-14].jpg']
   },
   {
     id: 'cat-life-meaning',
@@ -606,8 +606,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '고양이 털 보라 (Cat Purple)', hex: '#8E44AD' },
       { name: '따뜻한 아이보리 (Ivory)', hex: '#F5F5DC' }
     ],
-    coverImage: '/books/[IMG-15].jpeg',
-    samplePages: ['/books/[IMG-15].jpeg']
+    coverImage: '/books/[IMG-15].jpg',
+    samplePages: ['/books/[IMG-15].jpg']
   },
   {
     id: 'nutty-forest-trip',
@@ -627,8 +627,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '도토리 갈색 (Acorn Brown)', hex: '#8B4513' },
       { name: '숲속 나뭇잎 초록 (Forest Green)', hex: '#27AE60' }
     ],
-    coverImage: '/books/[IMG-16].jpeg',
-    samplePages: ['/books/[IMG-16].jpeg']
+    coverImage: '/books/[IMG-16].jpg',
+    samplePages: ['/books/[IMG-16].jpg']
   },
 
   // --- 근간 (출간 예정) ---
