@@ -315,8 +315,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '밤하늘 묵색 (Deep Midnight)', hex: '#1B263B' },
       { name: '별빛 황금 (Star Gold)', hex: '#E0A96D' }
     ],
-    coverImage: '/gallery/IMG_1787.JPG',
-    samplePages: ['/gallery/IMG_1787.JPG']
+    coverImage: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+    samplePages: []
   },
 
   // --- 드라마 ---
@@ -359,8 +359,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '따스한 오렌지 (Warm Orange)', hex: '#E67E22' },
       { name: '강물 푸른색 (River Blue)', hex: '#2980B9' }
     ],
-    coverImage: '/gallery/IMG_1836.JPG',
-    samplePages: ['/gallery/IMG_1836.JPG']
+    coverImage: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=800&q=80',
+    samplePages: []
   },
   {
     id: 'gourd-flowers',
@@ -457,8 +457,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '마오족 다홍 (Miao Red)', hex: '#C0392B' },
       { name: '은장식 은색 (Silver)', hex: '#BDC3C7' }
     ],
-    coverImage: '/gallery/IMG_1788.JPG',
-    samplePages: ['/gallery/IMG_1788.JPG']
+    coverImage: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80',
+    samplePages: []
   },
   {
     id: 'kongsuk-patsuk',
@@ -478,8 +478,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '황토빛 (Earth Warm)', hex: '#D2B48C' },
       { name: '시골 기와 묵색 (Roof Charcoal)', hex: '#34495E' }
     ],
-    coverImage: '/gallery/IMG_1789.JPG',
-    samplePages: ['/gallery/IMG_1789.JPG']
+    coverImage: 'https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&w=800&q=80',
+    samplePages: []
   },
   {
     id: 'king-shepherd',
@@ -520,8 +520,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '주먹이 황토 (Clay Gold)', hex: '#C87D55' },
       { name: '신명 초록 (Joy Green)', hex: '#2ECC71' }
     ],
-    coverImage: '/gallery/IMG_1790.JPG',
-    samplePages: ['/gallery/IMG_1790.JPG']
+    coverImage: 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=800&q=80',
+    samplePages: []
   },
 
   // --- 우화와 생활 ---
