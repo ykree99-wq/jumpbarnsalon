@@ -293,8 +293,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '개나리 노랑 (Yellow)', hex: '#F9D835' },
       { name: '진분홍 (Pink Flower)', hex: '#E91E63' },
     ],
-    coverImage: '/slides/slide-2.png',
-    samplePages: ['/slides/slide-2.png'],
+    coverImage: '/books/[IMG-1].jpg',
+    samplePages: ['/books/[IMG-1].jpg'],
     awards: ['한국어린이도서상 수상', '교과서 수록작']
   },
   {
@@ -315,8 +315,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '밤하늘 묵색 (Deep Midnight)', hex: '#1B263B' },
       { name: '별빛 황금 (Star Gold)', hex: '#E0A96D' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/[IMG-2].jpg',
+    samplePages: ['/books/[IMG-2].jpg']
   },
 
   // --- 드라마 ---
@@ -338,8 +338,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '스카이 블루 (Sky Blue)', hex: '#87CEEB' },
       { name: '크라프트 브라운 (Kraft)', hex: '#D2B48C' }
     ],
-    coverImage: '/slides/slide-4.png',
-    samplePages: ['/slides/slide-4.png']
+    coverImage: '/books/[IMG-3].jpg',
+    samplePages: ['/books/[IMG-3].jpg']
   },
   {
     id: 'geumgeum-mom',
@@ -359,8 +359,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '따스한 오렌지 (Warm Orange)', hex: '#E67E22' },
       { name: '강물 푸른색 (River Blue)', hex: '#2980B9' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/[IMG-4].jpg',
+    samplePages: ['/books/[IMG-4].jpg']
   },
   {
     id: 'gourd-flowers',
@@ -404,9 +404,9 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '청록 (Teal-Jade)', hex: '#008B8B' },
       { name: '황금 (Yellow Gold)', hex: '#F2A900' },
     ],
-    coverImage: '/slides/slide-1.png',
+    coverImage: '/books/[IMG-6].jpg',
     samplePages: [
-      '/slides/slide-1.png',
+      '/books/[IMG-6].jpg',
       '/characters/gawi-gaksi.jpg',
       '/characters/needle-lady.jpg',
       '/characters/ruler-lady.jpg',
@@ -435,8 +435,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '먹빛 (Ink Black)', hex: '#2C3E50' },
       { name: '비취색 (Jade Green)', hex: '#16A085' }
     ],
-    coverImage: '/slides/slide-3.png',
-    samplePages: ['/slides/slide-3.png'],
+    coverImage: '/books/[IMG-7].jpg',
+    samplePages: ['/books/[IMG-7].jpg'],
     awards: ['초등 4학년 국어 교과서 수록작']
   },
   {
@@ -457,8 +457,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '마오족 다홍 (Miao Red)', hex: '#C0392B' },
       { name: '은장식 은색 (Silver)', hex: '#BDC3C7' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/[IMG-8].jpeg',
+    samplePages: ['/books/[IMG-8].jpeg']
   },
   {
     id: 'kongsuk-patsuk',
@@ -478,8 +478,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '황토빛 (Earth Warm)', hex: '#D2B48C' },
       { name: '시골 기와 묵색 (Roof Charcoal)', hex: '#34495E' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/[IMG-9].jpg',
+    samplePages: ['/books/[IMG-9].jpg']
   },
   {
     id: 'king-shepherd',
@@ -499,8 +499,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '티베트 청공 (Tibet Sky)', hex: '#2980B9' },
       { name: '초원 금빛 (Savanna Gold)', hex: '#F39C12' }
     ],
-    coverImage: '/slides/slide-5.png',
-    samplePages: ['/slides/slide-5.png']
+    coverImage: '/books/[IMG-10].jpg',
+    samplePages: ['/books/[IMG-10].jpg']
   },
   {
     id: 'return-jumeoki',
@@ -520,8 +520,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '주먹이 황토 (Clay Gold)', hex: '#C87D55' },
       { name: '신명 초록 (Joy Green)', hex: '#2ECC71' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/주먹이.jpg',
+    samplePages: ['/books/주먹이.jpg']
   },
 
   // --- 우화와 생활 ---
@@ -543,8 +543,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '채소밭 연두 (Lettuce Green)', hex: '#27AE60' },
       { name: '실험실 쥐 회색 (Lab Gray)', hex: '#7F8C8D' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/[IMG-12].png',
+    samplePages: ['/books/[IMG-12].png']
   },
   {
     id: 'tteok-taryeong',
@@ -564,8 +564,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '떡고물 황금 (Injeolmi Gold)', hex: '#F1C40F' },
       { name: '쑥떡 청록 (Mugwort Green)', hex: '#16A085' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/[IMG-13].jpg',
+    samplePages: ['/books/[IMG-13].jpg']
   },
   {
     id: 'barefoot-gymnastics',
@@ -578,15 +578,15 @@ export const PICTURE_BOOKS: PictureBook[] = [
     badge: '지구상 최초 맨발체조',
     tag: '건강과 활력 힐링',
     price: '13,500원',
-    description: '꿈이 있다면 내 몸을 스스로 돌볼 것! 남녀노소, 어른아이 할 것없이 내 몸은 내가 지킨다! \'맨손체조\' 아닌 지구상 최초, \'맨발체조!\'랍니다. 잠들기전 따라하면 숙면을 돕고, 깨어난 후 따라하면 활기찬 하루 보장!',
+    description: '꿈이 있다면 내 몸을 스스로 돌볼 것! 남녀노소, 어른아이 할 것없이 내 몸은 내가 지킨다! \'맨손체조\' 아닌 지구상 최초, \'맨발체조!\'답니다. 잠들기전 따라하면 숙면을 돕고, 깨어난 후 따라하면 활기찬 하루 보장!',
     summary: '지구상 최초의 \'맨발체조\'! 이불 위에서 아침저녁 따라 하며 남녀노소 누구나 내 몸을 아끼고 돌보게 하는 유쾌하고 유익한 힐링책.',
     characters: ['체조하는 어린이 & 어른들'],
     colorPalette: [
       { name: '이불 솜 분홍 (Quilt Pink)', hex: '#FFB6C1' },
       { name: '활력 노랑 (Energy Yellow)', hex: '#F39C12' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/[IMG-14].jpeg',
+    samplePages: ['/books/[IMG-14].jpeg']
   },
   {
     id: 'cat-life-meaning',
@@ -606,8 +606,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '고양이 털 보라 (Cat Purple)', hex: '#8E44AD' },
       { name: '따뜻한 아이보리 (Ivory)', hex: '#F5F5DC' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1514888286872-47455c101dd5?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/[IMG-15].jpeg',
+    samplePages: ['/books/[IMG-15].jpeg']
   },
   {
     id: 'nutty-forest-trip',
@@ -627,8 +627,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '도토리 갈색 (Acorn Brown)', hex: '#8B4513' },
       { name: '숲속 나뭇잎 초록 (Forest Green)', hex: '#27AE60' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1476611317561-60117649dd94?auto=format&fit=crop&w=800&q=80',
-    samplePages: []
+    coverImage: '/books/[IMG-16].jpeg',
+    samplePages: ['/books/[IMG-16].jpeg']
   },
 
   // --- 근간 (출간 예정) ---
@@ -643,7 +643,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
     badge: '✨ 출간 예정 근간',
     tag: '몽당연필들의 뜨거운 도전',
     description: '쓰다 남아 작아진 몽당연필들이 모여 펼치는 정정당당 신나는 올림픽 경기! 작고 소외된 존재들의 찬란한 열정과 도전을 담아낼 차기작.',
-    coverImage: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80'
+    coverImage: '/books/[IMG-17].jpg',
+    samplePages: ['/books/[IMG-17].jpg']
   },
   {
     id: 'upcoming-chive-pancake',
@@ -656,7 +657,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
     badge: '✨ 출간 예정 근간',
     tag: '따스한 음식과 보금자리 이야기',
     description: '고소한 부추전 모양을 닮은 새둥지 속 아기 새들과 우리네 따뜻한 식탁 풍경이 어우러지는 정겨운 근간 그림책.',
-    coverImage: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80'
+    coverImage: '/books/[IMG-18].jpg',
+    samplePages: ['/books/[IMG-18].jpg']
   },
   {
     id: 'upcoming-noodle-shop',
@@ -669,7 +671,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
     badge: '✨ 출간 예정 근간',
     tag: '골목길 국수 한 그릇의 온기',
     description: '소박한 골목길 따스한 국수집에서 오가는 이웃들의 소소한 이야기와 미소를 담아낼 살가운 차기 신작.',
-    coverImage: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=800&q=80'
+    coverImage: '/books/[IMG-19].jpg',
+    samplePages: ['/books/[IMG-19].jpg']
   }
 ];
 
