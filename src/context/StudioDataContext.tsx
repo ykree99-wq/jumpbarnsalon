@@ -95,10 +95,14 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             if (data.books) {
               const merged = data.books.map((b: any) => {
                 const defaultBook = PICTURE_BOOKS.find(pb => pb.id === b.id);
-                if (!b.coverImage || b.coverImage.includes('unsplash.com') || b.coverImage.startsWith('blob:') || (defaultBook && defaultBook.coverImage.startsWith('/books/'))) {
-                  return defaultBook || b;
-                }
-                return b;
+                const coverImage = (!b.coverImage || b.coverImage.includes('unsplash.com') || b.coverImage.startsWith('blob:'))
+                  ? (defaultBook?.coverImage || b.coverImage)
+                  : b.coverImage;
+                return {
+                  ...(defaultBook || {}),
+                  ...b,
+                  coverImage,
+                };
               });
               const existingIds = new Set(merged.map((b: any) => b.id));
               const newBooks = PICTURE_BOOKS.filter(pb => !existingIds.has(pb.id));
@@ -128,10 +132,14 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             if (parsed.books) {
               const merged = parsed.books.map((b: any) => {
                 const defaultBook = PICTURE_BOOKS.find(pb => pb.id === b.id);
-                if (!b.coverImage || b.coverImage.includes('unsplash.com') || b.coverImage.startsWith('blob:') || (defaultBook && defaultBook.coverImage.startsWith('/books/'))) {
-                  return defaultBook || b;
-                }
-                return b;
+                const coverImage = (!b.coverImage || b.coverImage.includes('unsplash.com') || b.coverImage.startsWith('blob:'))
+                  ? (defaultBook?.coverImage || b.coverImage)
+                  : b.coverImage;
+                return {
+                  ...(defaultBook || {}),
+                  ...b,
+                  coverImage,
+                };
               });
               const existingIds = new Set(merged.map((b: any) => b.id));
               const newBooks = PICTURE_BOOKS.filter(pb => !existingIds.has(pb.id));

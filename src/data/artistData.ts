@@ -380,8 +380,8 @@ export const PICTURE_BOOKS: PictureBook[] = [
       { name: '박꽃 순백 (Gourd White)', hex: '#FDFEFE' },
       { name: '태평양 남빛 (Deep Ocean)', hex: '#1B4F72' }
     ],
-    coverImage: '/books/gourd-flowers.jpg',
-    samplePages: ['/books/gourd-flowers.jpg']
+    coverImage: '/books/안녕,야학당.jpg',
+    samplePages: ['/books/안녕,야학당.jpg']
   },
 
   // --- 옛이야기 ---
