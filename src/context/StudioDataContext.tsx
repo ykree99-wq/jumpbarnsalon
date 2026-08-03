@@ -95,9 +95,9 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             if (data.books) {
               const merged = data.books.map((b: any) => {
                 const defaultBook = PICTURE_BOOKS.find(pb => pb.id === b.id);
-                const coverImage = (!b.coverImage || b.coverImage.includes('unsplash.com') || b.coverImage.startsWith('blob:'))
-                  ? (defaultBook?.coverImage || b.coverImage)
-                  : b.coverImage;
+                const coverImage = (b.coverImage && b.coverImage.startsWith('data:image/'))
+                  ? b.coverImage
+                  : (defaultBook?.coverImage || b.coverImage);
                 return {
                   ...(defaultBook || {}),
                   ...b,
@@ -132,9 +132,9 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             if (parsed.books) {
               const merged = parsed.books.map((b: any) => {
                 const defaultBook = PICTURE_BOOKS.find(pb => pb.id === b.id);
-                const coverImage = (!b.coverImage || b.coverImage.includes('unsplash.com') || b.coverImage.startsWith('blob:'))
-                  ? (defaultBook?.coverImage || b.coverImage)
-                  : b.coverImage;
+                const coverImage = (b.coverImage && b.coverImage.startsWith('data:image/'))
+                  ? b.coverImage
+                  : (defaultBook?.coverImage || b.coverImage);
                 return {
                   ...(defaultBook || {}),
                   ...b,
