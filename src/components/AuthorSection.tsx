@@ -3,6 +3,7 @@ import { Award, CheckCircle2 } from 'lucide-react';
 import { ARTIST_PROFILE } from '../data/artistData';
 import { useStudioData } from '../context/StudioDataContext';
 import DragDropDropzone from './DragDropDropzone';
+import EditableText from './EditableText';
 import { motion } from 'motion/react';
 
 export default function AuthorSection() {
@@ -61,9 +62,15 @@ export default function AuthorSection() {
               <h3 className="text-2xl font-serif font-bold text-[#1C1C18] border-b border-black/10 pb-4">
                 Biography
               </h3>
-              <p className="text-black/70 text-base leading-relaxed whitespace-pre-line font-medium">
-                {ARTIST_PROFILE.bio}
-              </p>
+              <div className="text-black/80 text-base leading-relaxed whitespace-pre-line font-medium space-y-4">
+                <EditableText
+                  category="profile"
+                  id="artist"
+                  field="bio"
+                  value={ARTIST_PROFILE.bio}
+                  tagName="p"
+                />
+              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
