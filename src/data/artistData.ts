@@ -269,7 +269,7 @@ export const ARTIST_PROFILE = {
     exhibitionCount: '40여 회 전시',
   },
   images: {
-    portrait: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80',
+    portrait: '/profile-portrait.jpg',
     studio: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80',
     artwork: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
   }

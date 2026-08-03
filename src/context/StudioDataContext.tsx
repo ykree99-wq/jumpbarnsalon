@@ -150,7 +150,11 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             
             if (parsed.sketchbookNotes) setSketchbookNotes(parsed.sketchbookNotes);
             setCharacters(IP_CHARACTERS);
-            if (parsed.portraitImage) setPortraitImage(parsed.portraitImage);
+            if (parsed.portraitImage && parsed.portraitImage.startsWith('data:image/')) {
+              setPortraitImage(parsed.portraitImage);
+            } else {
+              setPortraitImage(ARTIST_PROFILE.images.portrait);
+            }
             setHasCustomData(true);
           }
         } catch (e) {
