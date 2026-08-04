@@ -12,11 +12,11 @@ interface ExhibitionsSectionProps {
 const STORAGE_KEY_STUDIO_NEWS = 'youngkyoung_studio_news_frames_v1';
 
 const DEFAULT_NEWS_FRAMES = [
-  'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80',
-  'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80',
-  'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80',
-  'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
-  'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80',
+  '/gallery/IMG_1836.JPG',
+  '/gallery/IMG_1837.JPG',
+  '/gallery/IMG_1838.JPG',
+  '/gallery/IMG_1839.JPG',
+  '/gallery/IMG_1840.JPG',
 ];
 
 export default function ExhibitionsSection({ onOpenWorkshopModal, onOpenContactModal }: ExhibitionsSectionProps) {

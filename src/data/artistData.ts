@@ -150,7 +150,7 @@ export const NEWS_ITEMS: NewsItem[] = [
     title: '성수 스튜디오 [오방색과 일곱 동무] 개인전 오픈',
     summary: '8월 1일부터 10월 15일까지 성수동 아틀리에에서 이영경 작가의 30년 작가 인생 원화전이 펼쳐집니다. 사전 예약 시 친필 서명 엽서 증정.',
     linkText: '전시 상세보기',
-    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80'
+    image: '/gallery/IMG_1787.JPG'
   },
   {
     id: 'news-2',
@@ -159,7 +159,7 @@ export const NEWS_ITEMS: NewsItem[] = [
     title: '<아씨방 일곱 동무> 프랑스어판 & 스페인어판 동시 출간',
     summary: '유럽 유수 아동 출판사를 통해 <The Seven Friends>가 정식 번역 출간되어 유럽 현지 독자들과 만납니다.',
     linkText: '해외 출판 소식',
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80'
+    image: '/gallery/IMG_1788.JPG'
   },
   {
     id: 'news-3',
@@ -168,7 +168,7 @@ export const NEWS_ITEMS: NewsItem[] = [
     title: '여름 시즌 [오방색 채색 아틀리에 워크숍] 일정 개설',
     summary: '작가 직강으로 진행되는 전통 분채 및 닥종이 한지 채색 원데이 클래스가 8월 토요일에 오픈됩니다.',
     linkText: '워크숍 신청하기',
-    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80'
+    image: '/gallery/IMG_1789.JPG'
   }
 ];
 
@@ -178,7 +178,7 @@ export const SKETCHBOOK_NOTES: SketchbookNote[] = [
     title: '오방색 붓끝에서 태어난 가위 각시의 미소',
     date: '2026.07.10 스케치북 노트',
     noteText: '다홍빛 물감과 청록빛 먹선을 번갈아 그으며, 바느질함 속 싹둑싹둑 가위 각시의 앙증맞은 입매를 다듬는다. 전통 색은 시간이 지날수록 종이에 그윽하게 안착한다.',
-    sketchImage: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
+    sketchImage: '/gallery/IMG_1790.JPG',
     colorPalette: ['#D9381E', '#008B8B', '#F2A900', '#F9F6EE']
   },
   {
@@ -186,7 +186,7 @@ export const SKETCHBOOK_NOTES: SketchbookNote[] = [
     title: '넉 점 반 아기의 신나는 들길 발걸음',
     date: '2026.06.28 스케치북 노트',
     noteText: '“엄마, 시방 넉 점 반이래!” 순진무구한 목소리가 여름 들녘 개나리 꽃빛처럼 온 동네를 가득 채우는 정경을 한지 위에 옅은 채색으로 담아본다.',
-    sketchImage: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80',
+    sketchImage: '/gallery/IMG_1791.JPG',
     colorPalette: ['#F9D835', '#E91E63', '#556B2F']
   }
 ];
@@ -330,8 +330,8 @@ export const ARTIST_PROFILE = {
   },
   images: {
     portrait: '/profile-portrait.jpg',
-    studio: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80',
-    artwork: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
+    studio: '/gallery/IMG_1836.JPG',
+    artwork: '/gallery/IMG_1837.JPG',
   }
 };
 
