@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Tag, Check, Eye, EyeOff, Copy } from 'lucide-react';
+import { Tag, Check, Eye, EyeOff } from 'lucide-react';
 import { useStudioData } from '../context/StudioDataContext';
 
 export default function ElementTagOverlay() {
-  const [showTags, setShowTags] = useState(true);
+  const { isStudioMode, notify } = useStudioData();
+  const [showTags, setShowTags] = useState(false);
   const [copiedTag, setCopiedTag] = useState<string | null>(null);
-  const { notify } = useStudioData();
+
+  // Automatically enable tags when Studio Mode is activated
+  useEffect(() => {
+    setShowTags(isStudioMode);
+  }, [isStudioMode]);
 
   useEffect(() => {
-    if (!showTags) {
+    if (!isStudioMode || !showTags) {
       document.querySelectorAll('.element-id-badge').forEach((b) => b.remove());
       return;
     }
@@ -106,7 +111,12 @@ export default function ElementTagOverlay() {
       observer.disconnect();
       document.querySelectorAll('.element-id-badge').forEach((b) => b.remove());
     };
-  }, [showTags, notify]);
+  }, [isStudioMode, showTags, notify]);
+
+  // If Studio Mode is OFF, do not render floating button or badges
+  if (!isStudioMode) {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-2">

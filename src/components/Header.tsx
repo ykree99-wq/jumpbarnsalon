@@ -28,7 +28,7 @@ export default function Header({ activeView, onViewChange, onOpenContactModal }:
     { label: 'EXHIBITIONS', view: 'exhibitions' },
     { label: 'BOOKS', view: 'books' },
     { label: 'CHARACTERS', view: 'characters' },
-    { label: 'SKETCH', view: 'sketchbook' },
+    { label: 'DOWNLOAD PLAYGROUND', view: 'sketchbook' },
     { label: 'PROFILE', view: 'profile' },
     { label: 'CONTACT', view: 'profile' }, // I'll use profile for now, or just handle it as a modal trigger
   ];

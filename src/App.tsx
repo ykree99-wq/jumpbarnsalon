@@ -105,13 +105,6 @@ function AppContent() {
         </AnimatePresence>
       </main>
 
-      {activeView !== 'home' && (
-        <Footer
-          onOpenContactModal={() => setIsContactModalOpen(true)}
-          onOpenBookModal={handleOpenBookModal}
-        />
-      )}
-
       <ElementTagOverlay />
 
       <NotificationContainer />

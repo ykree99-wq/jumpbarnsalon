@@ -45,40 +45,100 @@ export const SLIDESHOW_ARTWORKS = [
 
 export const EXHIBITIONS: Exhibition[] = [
   {
-    id: 'ex-1',
-    title: '2026 이영경 그림책 원화 특별전: 오방색과 일곱 동무',
-    englishTitle: 'The Seven Friends & Obangsaek Solo Exhibition',
-    venue: '성수 예술공간 Atelier #2 Main Hall',
-    location: '서울 성동구 성수이로 88',
-    period: '2026. 08. 01 — 2026. 10. 15',
-    status: '현재 전시중',
+    id: 'ex-orig-1',
+    title: '',
+    englishTitle: '',
+    venue: '',
+    location: '',
+    period: '',
+    status: '전시 아카이브',
     posterImage: '/exhibitions/exhibition-1.png',
-    description: '<아씨방 일곱 동무> 및 <넉 점 반>의 진품 원화 50여 점과 대형 K-Cuty 민화 호랑이 입체 오브제를 한자리에서 감상할 수 있는 감동적인 개인전입니다.',
-    highlights: ['최초 공개 미발표 원화 스케치 15점', '실물 크기 규중칠우 캐릭터 포토존', '주말 작가 도슨트 & 사인회']
+    description: '',
+    highlights: []
+  },
+  {
+    id: 'ex-orig-2',
+    title: '',
+    englishTitle: '',
+    venue: '',
+    location: '',
+    period: '',
+    status: '전시 아카이브',
+    posterImage: '/exhibitions/exhibition-2.png',
+    description: '',
+    highlights: []
+  },
+  {
+    id: 'ex-1',
+    title: '',
+    englishTitle: '',
+    venue: '',
+    location: '',
+    period: '',
+    status: '전시 아카이브',
+    posterImage: '/exhibitions/ex-1.jpg',
+    description: '',
+    highlights: []
   },
   {
     id: 'ex-2',
-    title: '볼로냐 국제 어린이 도서전 주빈국 특별 초대전',
-    englishTitle: 'Bologna Children’s Book Fair Korean Illustrators Showcase',
-    venue: 'Bologna Exhibition Centre Hall 29',
-    location: 'Bologna, Italy',
-    period: '2026. 04. 10 — 2026. 04. 13',
+    title: '',
+    englishTitle: '',
+    venue: '',
+    location: '',
+    period: '',
     status: '전시 아카이브',
-    posterImage: '/exhibitions/exhibition-2.png',
-    description: '전 세계 그림책 거장들이 모이는 볼로냐 도서전에서 K-Cuty Folk Art의 아름다움과 전통 오방색의 신명을 알린 특별 초대전.',
-    highlights: ['유럽 출판인 대상 스튜디오 세미나', '프랑스, 스페인 번역 출판 계약 조인']
+    posterImage: '/exhibitions/ex-2.jpg',
+    description: '',
+    highlights: []
   },
   {
     id: 'ex-3',
-    title: '국립어린이청소년도서관: 한국 거장 그림책 원화 순회전',
-    englishTitle: 'National Library for Children Showcase',
-    venue: '국립어린이청소년도서관 기획전시실',
-    location: '서울 강남구 테헤란로',
-    period: '2026. 11. 01 — 2026. 12. 31',
-    status: '예정 전시',
-    posterImage: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=800&q=80',
-    description: '한국 그림책 역사의 이정표가 된 <아씨방 일곱 동무>의 28주년 기념 순회 기획전.',
-    highlights: ['어린이 대상 가위각시 입체 인형 만들기', '교과서 속 그림책 원화 해설']
+    title: '',
+    englishTitle: '',
+    venue: '',
+    location: '',
+    period: '',
+    status: '전시 아카이브',
+    posterImage: '/exhibitions/ex-3.jpg',
+    description: '',
+    highlights: []
+  },
+  {
+    id: 'ex-4',
+    title: '',
+    englishTitle: '',
+    venue: '',
+    location: '',
+    period: '',
+    status: '전시 아카이브',
+    posterImage: '/exhibitions/ex-4.jpg',
+    description: '',
+    highlights: []
+  },
+  {
+    id: 'ex-5',
+    title: '',
+    englishTitle: '',
+    venue: '',
+    location: '',
+    period: '',
+    status: '전시 아카이브',
+    posterImage: '/exhibitions/ex-5.jpg',
+    description: '',
+    highlights: []
+  },
+  {
+    id: 'ex-6',
+    title: '',
+    englishTitle: '',
+    venue: '',
+    location: '',
+    period: '',
+    status: '전시 아카이브',
+    posterImage: '/exhibitions/ex-6.jpg',
+    description: '',
+    highlights: []
   }
 ];
 
@@ -252,13 +312,13 @@ export const ARTIST_PROFILE = {
   introQuote: '“한국 옛이야기의 해학을 현대적 감각으로 살려내는 그림책 작가 이영경의 아카이브 - jbsalon.art”',
   bio: `1993년부터 그림책 일러스트레이션을 시작했다. 청소년기 학교 교과목에서 접한 고전문학작품을 모티브로 하여 기획, 1998년 그림책 <아씨방 일곱 동무>를 출간했으며 이후 <넉 점 반>, <묘생이란 무엇인가> 등 다수의 그림책에 글과 그림으로 작품활동을 해오고 있다.
 
-그림책 출판 이외에 전시회와 1인극 공연 및 강연 등으로 관객과 독자들을 만나고 있으며 최근 '쩜반살롱'이라는 공간을 열었다. '쩜반'은 <넉 점 반>에서 뒷글자를 따온 이름이고 각종 이벤트 공간을 갖춘 작업 스튜디오이며 캐릭터 브랜딩 회사이기도 하다. 2023년과 2024년 아스트리드 린드그렌 상 한국후보로 추천되었다. 2020년부터 현재까지 그림책협회 회장에 재임 중이다.
+그림책 출판 이외에 전시회와 1인극 공연 및 강연 등으로 관객과 독자들을 만나고 있으며 최근 '쩜반살롱'이라는 공간을 열었다. '쩜반'은 <넉 점 반>에서 뒷글자를 따온 이름이고 각종 이벤트 공간을 갖춘 작업 스튜디오이며 캐릭터 브랜딩 회사이기도 하다. 2023년과 2024년 아스트리드 린드그렌 상 한국후보로 추천되었다. 2020년부터 2024년까지 그림책협회 회장에 재임했다.
 
 '재미'와 '유쾌함'을 생활과 작품활동의 중요가치로서 추구하고 있다. 삶을 마감하는 순간에 아기처럼 방긋 웃고 세상을 떠나는 것이 목표이고 어린이들과 어울려 춤추고 노래하는 율동할머니가 장래의 꿈이다. 이른 아침 '넉 점 반'이라는 시각을 사랑하고 '아침'이라는 선물에 늘 감사하며 하루를 시작한다.`,
   awards: [
     '2023년·2024년 아스트리드 린드그렌 상 (ALMA) 한국 대표 후보 추천',
-    '그림책협회 회장 재임 (2020년 ~ 현재)',
-    '제39회 백상출판문화상 어린이부문 수상 (<아씨방 일곱 동무>)',
+    '그림책협회 회장 재임 (2020년 ~ 2024년)',
+    '초등학교 국어교과서 수록(~2025년)',
     '어린이도서연구회 추천도서 선정 (<넉 점 반>, <주먹이>)',
     'BIB (브라티슬라바 일러스트레이션 비엔날레) 한국 대표 출품',
   ],
@@ -964,5 +1024,41 @@ export const FAQS: FAQItem[] = [
     question: '<아씨방 일곱 동무> 및 <넉 점 반> 등의 친필 서명본 도서 구매가 가능한가요?',
     answer: '스튜디오 현장 방문 수강생 및 온라인 이벤트 기간 중 원화 도서 구매 시 이영경 작가님의 감사 메시지 및 친필 캐릭터 스케치가 담긴 서명본 도서를 증정해 드립니다.',
     category: 'books'
+  }
+];
+
+export interface DownloadMaterialItem {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  fileSize: string;
+}
+
+export const INITIAL_DOWNLOAD_MATERIALS: DownloadMaterialItem[] = [
+  {
+    id: 'mat-1',
+    title: '아씨방 일곱 동무 원화 수묵채색 일러스트 (PNG / JPG)',
+    category: '원화 일러스트',
+    description: '이영경 작가의 <아씨방 일곱 동무> 원화 일러스트입니다.',
+    image: '/downloads/material-1.jpg',
+    fileSize: '4.2 MB'
+  },
+  {
+    id: 'mat-2',
+    title: '아씨방 일곱 동무 캐릭터 색칠놀이 도안 (PDF / PNG)',
+    category: '컬러링 활동지',
+    description: '자부인, 가위색시, 바늘각시, 홍실각시, 인두낭자, 다리미소저, 골무할미 규중칠우 캐릭터 색칠놀이 도안입니다.',
+    image: '/downloads/material-2.png',
+    fileSize: '3.8 MB'
+  },
+  {
+    id: 'mat-3',
+    title: 'K-Cuty Folk Art 오방색 단청 문양 학습 워크북',
+    category: '전통색채 워크북',
+    description: '한국 전통 오방색(적·청·황·흑·백)의 상징과 해학적 단청 모티브를 배우는 스튜디오 기획 자료입니다.',
+    image: '/slides/slide-3.png',
+    fileSize: '5.1 MB'
   }
 ];

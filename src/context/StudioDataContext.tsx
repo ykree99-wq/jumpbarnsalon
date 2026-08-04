@@ -10,11 +10,13 @@ import {
   IP_CHARACTERS,
   SKETCHBOOK_NOTES,
   ARTIST_PROFILE,
-  GALLERY_WORKS
+  GALLERY_WORKS,
+  INITIAL_DOWNLOAD_MATERIALS,
+  DownloadMaterialItem
 } from '../data/artistData';
 import { Exhibition, PictureBook, IPCharacter, SketchbookNote, GalleryWork } from '../types';
 
-const STORAGE_KEY = 'youngkyoung_studio_data_v1';
+const STORAGE_KEY = 'youngkyoung_studio_data_v3';
 
 interface StudioDataContextType {
   user: User | null;
@@ -32,9 +34,11 @@ interface StudioDataContextType {
   characters: IPCharacter[];
   galleryWorks: GalleryWork[];
   portraitImage: string;
-  updateImage: (category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'portrait' | 'gallery', id: string, imageDataUrl: string) => void;
-  updateMultipleImages: (category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'portrait' | 'gallery', updates: { id: string; imageDataUrl: string }[]) => void;
-  updateText: (category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'gallery', id: string, field: string, value: string) => void;
+  artistProfile: typeof ARTIST_PROFILE;
+  downloadMaterials: DownloadMaterialItem[];
+  updateImage: (category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'portrait' | 'gallery' | 'material', id: string, imageDataUrl: string) => void;
+  updateMultipleImages: (category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'portrait' | 'gallery' | 'material', updates: { id: string; imageDataUrl: string }[]) => void;
+  updateText: (category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'gallery' | 'profile' | 'material', id: string, field: string, value: string) => void;
   resetAllData: () => void;
   hasCustomData: boolean;
   notify: (msg: string, type?: 'success' | 'error' | 'info') => void;
@@ -47,7 +51,7 @@ const StudioDataContext = createContext<StudioDataContextType | undefined>(undef
 export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [isEditMode, setIsEditMode] = useState<boolean>(true); // Default ON for easy user drag and drop
+  const [isEditMode, setIsEditMode] = useState<boolean>(true);
   const [isStudioMode, setIsStudioMode] = useState<boolean>(false);
   const [slides, setSlides] = useState(SLIDESHOW_ARTWORKS);
   const [exhibitions, setExhibitions] = useState<Exhibition[]>(EXHIBITIONS);
@@ -56,6 +60,8 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [characters, setCharacters] = useState<IPCharacter[]>(IP_CHARACTERS);
   const [galleryWorks, setGalleryWorks] = useState<GalleryWork[]>(GALLERY_WORKS);
   const [portraitImage, setPortraitImage] = useState<string>(ARTIST_PROFILE.images.portrait);
+  const [artistProfile, setArtistProfile] = useState(ARTIST_PROFILE);
+  const [downloadMaterials, setDownloadMaterials] = useState<DownloadMaterialItem[]>(INITIAL_DOWNLOAD_MATERIALS);
   const [hasCustomData, setHasCustomData] = useState<boolean>(false);
   const [notifications, setNotifications] = useState<{ id: string; message: string; type: 'success' | 'error' | 'info' }[]>([]);
 
@@ -79,41 +85,15 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
           const docSnap = await getDoc(docRef);
           if (docSnap.exists()) {
             const data = docSnap.data();
-            if (data.slides) {
-              const sanitized = data.slides.map((s: any, idx: number) => {
-                if (!s.image || s.image.includes('unsplash.com')) {
-                  return SLIDESHOW_ARTWORKS[idx] || s;
-                }
-                return s;
-              });
-              setSlides(sanitized);
-            } else {
-              setSlides(SLIDESHOW_ARTWORKS);
-            }
-            if (data.exhibitions) setExhibitions(data.exhibitions);
-            
-            if (data.books) {
-              const merged = data.books.map((b: any) => {
-                const defaultBook = PICTURE_BOOKS.find(pb => pb.id === b.id);
-                const coverImage = (b.coverImage && b.coverImage.startsWith('data:image/'))
-                  ? b.coverImage
-                  : (defaultBook?.coverImage || b.coverImage);
-                return {
-                  ...(defaultBook || {}),
-                  ...b,
-                  coverImage,
-                };
-              });
-              const existingIds = new Set(merged.map((b: any) => b.id));
-              const newBooks = PICTURE_BOOKS.filter(pb => !existingIds.has(pb.id));
-              setBooks([...merged, ...newBooks]);
-            } else {
-              setBooks(PICTURE_BOOKS);
-            }
-            
-            if (data.sketchbookNotes) setSketchbookNotes(data.sketchbookNotes);
-            setCharacters(IP_CHARACTERS);
+            if (data.slides && Array.isArray(data.slides)) setSlides(data.slides);
+            if (data.exhibitions && Array.isArray(data.exhibitions)) setExhibitions(data.exhibitions);
+            if (data.books && Array.isArray(data.books)) setBooks(data.books);
+            if (data.sketchbookNotes && Array.isArray(data.sketchbookNotes)) setSketchbookNotes(data.sketchbookNotes);
+            if (data.characters && Array.isArray(data.characters)) setCharacters(data.characters);
+            if (data.galleryWorks && Array.isArray(data.galleryWorks)) setGalleryWorks(data.galleryWorks);
             if (data.portraitImage) setPortraitImage(data.portraitImage);
+            if (data.artistProfile) setArtistProfile(data.artistProfile);
+            if (data.downloadMaterials && Array.isArray(data.downloadMaterials)) setDownloadMaterials(data.downloadMaterials);
             setHasCustomData(true);
           }
         } catch (e) {
@@ -126,73 +106,26 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
           const saved = localStorage.getItem(STORAGE_KEY);
           if (saved) {
             const parsed = JSON.parse(saved);
-            setSlides(SLIDESHOW_ARTWORKS);
-            if (parsed.exhibitions) {
-              const mergedEx = parsed.exhibitions.map((ex: any) => {
-                const defaultEx = EXHIBITIONS.find(e => e.id === ex.id);
-                const posterImage = (ex.posterImage && ex.posterImage.startsWith('data:image/'))
-                  ? ex.posterImage
-                  : (defaultEx?.posterImage || ex.posterImage);
-                return {
-                  ...(defaultEx || {}),
-                  ...ex,
-                  posterImage
-                };
-              });
-              setExhibitions(mergedEx);
+            if (parsed.slides && Array.isArray(parsed.slides)) setSlides(parsed.slides);
+            if (parsed.exhibitions && Array.isArray(parsed.exhibitions) && parsed.exhibitions.length === EXHIBITIONS.length) {
+              setExhibitions(parsed.exhibitions);
             } else {
               setExhibitions(EXHIBITIONS);
             }
-            
-            if (parsed.books) {
-              const merged = parsed.books.map((b: any) => {
-                const defaultBook = PICTURE_BOOKS.find(pb => pb.id === b.id);
-                const coverImage = (b.coverImage && b.coverImage.startsWith('data:image/'))
-                  ? b.coverImage
-                  : (defaultBook?.coverImage || b.coverImage);
-                return {
-                  ...(defaultBook || {}),
-                  ...b,
-                  coverImage,
-                };
-              });
-              const existingIds = new Set(merged.map((b: any) => b.id));
-              const newBooks = PICTURE_BOOKS.filter(pb => !existingIds.has(pb.id));
-              setBooks([...merged, ...newBooks]);
-            } else {
-              setBooks(PICTURE_BOOKS);
-            }
-            
-            if (parsed.sketchbookNotes) setSketchbookNotes(parsed.sketchbookNotes);
-            
-            if (parsed.characters) {
-              const mergedChar = parsed.characters.map((c: any) => {
-                const defaultChar = IP_CHARACTERS.find(ic => ic.id === c.id);
-                const image = (c.image && c.image.startsWith('data:image/'))
-                  ? c.image
-                  : (defaultChar?.image || c.image);
-                return {
-                  ...(defaultChar || {}),
-                  ...c,
-                  image
-                };
-              });
-              setCharacters(mergedChar);
-            } else {
-              setCharacters(IP_CHARACTERS);
-            }
-
-            if (parsed.portraitImage && parsed.portraitImage.startsWith('data:image/')) {
-              setPortraitImage(parsed.portraitImage);
-            } else {
-              setPortraitImage(ARTIST_PROFILE.images.portrait);
+            if (parsed.books && Array.isArray(parsed.books)) setBooks(parsed.books);
+            if (parsed.sketchbookNotes && Array.isArray(parsed.sketchbookNotes)) setSketchbookNotes(parsed.sketchbookNotes);
+            if (parsed.characters && Array.isArray(parsed.characters)) setCharacters(parsed.characters);
+            if (parsed.galleryWorks && Array.isArray(parsed.galleryWorks)) setGalleryWorks(parsed.galleryWorks);
+            if (parsed.portraitImage) setPortraitImage(parsed.portraitImage);
+            if (parsed.artistProfile) setArtistProfile(parsed.artistProfile);
+            if (parsed.downloadMaterials && Array.isArray(parsed.downloadMaterials)) {
+              setDownloadMaterials(parsed.downloadMaterials);
             }
             setHasCustomData(true);
           }
         } catch (e) {
           console.warn('Failed to load studio data from localStorage', e);
         }
-        // If we were loading, stop now
         setLoading(false);
       }
     };
@@ -222,7 +155,6 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 
   // Save state helper
   const syncData = async (newData: any) => {
-    // Always save to localStorage as backup
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
       setHasCustomData(true);
@@ -230,7 +162,6 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       console.warn('Failed to save to localStorage', e);
     }
 
-    // Save to Firestore if logged in
     if (user) {
       try {
         await setDoc(doc(db, 'studio_configs', user.uid), {
@@ -245,7 +176,7 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     }
   };
 
-  // Unified Data Sync Effect - automatically saves to local & cloud when state changes
+  // Unified Data Sync Effect
   useEffect(() => {
     if (!loading) {
       syncData({
@@ -254,10 +185,13 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         books,
         sketchbookNotes,
         characters,
-        portraitImage
+        galleryWorks,
+        portraitImage,
+        artistProfile,
+        downloadMaterials
       });
     }
-  }, [slides, exhibitions, books, sketchbookNotes, characters, portraitImage, loading]);
+  }, [slides, exhibitions, books, sketchbookNotes, characters, galleryWorks, portraitImage, artistProfile, downloadMaterials, loading]);
 
   const updateMultipleImages = (
     category: string,
@@ -287,6 +221,8 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       setCharacters(prev => prev.map(c => updateMap.has(c.id) ? { ...c, image: updateMap.get(c.id)! } : c));
     } else if (finalCat === 'gallery') {
       setGalleryWorks(prev => prev.map(g => updateMap.has(g.id) ? { ...g, image: updateMap.get(g.id)! } : g));
+    } else if (finalCat === 'material') {
+      setDownloadMaterials(prev => prev.map(m => updateMap.has(m.id) ? { ...m, image: updateMap.get(m.id)! } : m));
     } else if (finalCat === 'portrait' && updates[0]) {
       setPortraitImage(updates[0].imageDataUrl);
     }
@@ -301,7 +237,7 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   };
 
   const updateText = (
-    category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'gallery',
+    category: 'slide' | 'exhibition' | 'book' | 'sketchbook' | 'character' | 'gallery' | 'profile' | 'material',
     id: string,
     field: string,
     value: string
@@ -318,6 +254,10 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       setCharacters(prev => prev.map(c => c.id === id ? { ...c, [field]: value } : c));
     } else if (category === 'gallery') {
       setGalleryWorks(prev => prev.map(g => g.id === id ? { ...g, [field]: value } : g));
+    } else if (category === 'profile') {
+      setArtistProfile(prev => ({ ...prev, [field]: value }));
+    } else if (category === 'material') {
+      setDownloadMaterials(prev => prev.map(m => m.id === id ? { ...m, [field]: value } : m));
     }
   };
 
@@ -334,6 +274,8 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     setCharacters(IP_CHARACTERS);
     setGalleryWorks(GALLERY_WORKS);
     setPortraitImage(ARTIST_PROFILE.images.portrait);
+    setArtistProfile(ARTIST_PROFILE);
+    setDownloadMaterials(INITIAL_DOWNLOAD_MATERIALS);
     setHasCustomData(false);
     notify('모든 데이터가 원작 상태로 초기화되었습니다.', 'info');
   };
@@ -370,6 +312,8 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         characters,
         galleryWorks,
         portraitImage,
+        artistProfile,
+        downloadMaterials,
         updateImage,
         updateMultipleImages,
         updateText,

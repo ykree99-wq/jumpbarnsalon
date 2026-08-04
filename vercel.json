@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/home_lee_young_kyung_picture_book_world.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
