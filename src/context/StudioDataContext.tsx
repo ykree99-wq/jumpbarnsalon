@@ -16,7 +16,7 @@ import {
 } from '../data/artistData';
 import { Exhibition, PictureBook, IPCharacter, SketchbookNote, GalleryWork } from '../types';
 
-const STORAGE_KEY = 'youngkyoung_studio_data_v3';
+const STORAGE_KEY = 'youngkyoung_studio_data_v12';
 
 interface StudioDataContextType {
   user: User | null;
@@ -89,11 +89,19 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             if (data.exhibitions && Array.isArray(data.exhibitions)) setExhibitions(data.exhibitions);
             if (data.books && Array.isArray(data.books)) setBooks(data.books);
             if (data.sketchbookNotes && Array.isArray(data.sketchbookNotes)) setSketchbookNotes(data.sketchbookNotes);
-            if (data.characters && Array.isArray(data.characters)) setCharacters(data.characters);
+            if (data.characters && Array.isArray(data.characters) && data.characters.length === IP_CHARACTERS.length) {
+              setCharacters(data.characters);
+            } else {
+              setCharacters(IP_CHARACTERS);
+            }
             if (data.galleryWorks && Array.isArray(data.galleryWorks)) setGalleryWorks(data.galleryWorks);
             if (data.portraitImage) setPortraitImage(data.portraitImage);
             if (data.artistProfile) setArtistProfile(data.artistProfile);
-            if (data.downloadMaterials && Array.isArray(data.downloadMaterials)) setDownloadMaterials(data.downloadMaterials);
+            if (data.downloadMaterials && Array.isArray(data.downloadMaterials) && data.downloadMaterials.length === INITIAL_DOWNLOAD_MATERIALS.length) {
+              setDownloadMaterials(data.downloadMaterials);
+            } else {
+              setDownloadMaterials(INITIAL_DOWNLOAD_MATERIALS);
+            }
             setHasCustomData(true);
           }
         } catch (e) {
@@ -114,17 +122,28 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             }
             if (parsed.books && Array.isArray(parsed.books)) setBooks(parsed.books);
             if (parsed.sketchbookNotes && Array.isArray(parsed.sketchbookNotes)) setSketchbookNotes(parsed.sketchbookNotes);
-            if (parsed.characters && Array.isArray(parsed.characters)) setCharacters(parsed.characters);
+            if (parsed.characters && Array.isArray(parsed.characters) && parsed.characters.length === IP_CHARACTERS.length) {
+              setCharacters(parsed.characters);
+            } else {
+              setCharacters(IP_CHARACTERS);
+            }
             if (parsed.galleryWorks && Array.isArray(parsed.galleryWorks)) setGalleryWorks(parsed.galleryWorks);
             if (parsed.portraitImage) setPortraitImage(parsed.portraitImage);
             if (parsed.artistProfile) setArtistProfile(parsed.artistProfile);
-            if (parsed.downloadMaterials && Array.isArray(parsed.downloadMaterials)) {
+            if (parsed.downloadMaterials && Array.isArray(parsed.downloadMaterials) && parsed.downloadMaterials.length === INITIAL_DOWNLOAD_MATERIALS.length) {
               setDownloadMaterials(parsed.downloadMaterials);
+            } else {
+              setDownloadMaterials(INITIAL_DOWNLOAD_MATERIALS);
             }
             setHasCustomData(true);
+          } else {
+            setCharacters(IP_CHARACTERS);
+            setDownloadMaterials(INITIAL_DOWNLOAD_MATERIALS);
           }
         } catch (e) {
           console.warn('Failed to load studio data from localStorage', e);
+          setCharacters(IP_CHARACTERS);
+          setDownloadMaterials(INITIAL_DOWNLOAD_MATERIALS);
         }
         setLoading(false);
       }

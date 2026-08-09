@@ -90,6 +90,32 @@ export default function AuthorSection() {
           </div>
 
         </div>
+
+        {/* Promotion Video Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-20 pt-16 border-t border-black/10 space-y-6"
+        >
+          <div className="flex items-center gap-3">
+            <div className="korean-seal text-[8px] w-6 h-6">영상</div>
+            <span className="text-[10px] font-black tracking-[0.3em] text-[#B7102A] uppercase">
+              ARTIST PROMOTION VIDEO
+            </span>
+          </div>
+
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black border border-black/10 aspect-video max-w-4xl mx-auto group">
+            <video
+              src="/video/promo-video.mov"
+              controls
+              controlsList="nodownload"
+              playsInline
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

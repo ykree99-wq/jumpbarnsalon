@@ -31,8 +31,7 @@ export default function CharactersSection({
               K-CUTY FOLK IP
             </h2>
             <p className="text-black/50 text-sm max-w-xl leading-relaxed">
-              전통 민화 속 해학적 주인공들을 현대적인 감각으로 재탄생시켰습니다. 
-              이영경 작가만의 독창적인 캐릭터 IP를 통해 특별한 협업의 가능성을 만나보세요.
+              그림책 속 주인공들의 라인업입니다. 이영경 작가의 독창적이 캐릭터 IP를 통해 특별한 협업의 가능성을 만나보세요.
             </p>
           </div>
           

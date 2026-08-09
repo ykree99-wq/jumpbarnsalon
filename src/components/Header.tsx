@@ -44,20 +44,21 @@ export default function Header({ activeView, onViewChange, onOpenContactModal }:
       <div className="max-w-7xl mx-auto px-10 flex items-center justify-between">
         <button
           onClick={() => onViewChange('home')}
-          className="flex items-center gap-2 group cursor-pointer"
+          className="flex flex-col items-start gap-0.5 group cursor-pointer shrink-0"
         >
-          <div className={`korean-seal text-[6px] w-5 h-5 transition-colors ${
-             activeView === 'home' && !isScrolled ? 'border-white/40 text-white' : 'border-black/10 text-black/40'
-          }`}>영경</div>
-          <span className={`font-serif font-black text-[10px] tracking-widest uppercase transition-colors ${
-            activeView === 'home' && !isScrolled ? 'text-white' : 'text-black'
-          }`}>
-            Young-Kyoung Lee
-          </span>
+          <img 
+            src="/assets/logo-stamp.png" 
+            alt="쩜반살롱 로고" 
+            className="h-7 sm:h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="text-[8px] sm:text-[9px] font-serif font-bold tracking-tight text-[#B7102A] leading-tight text-left">
+            <div>The Color lab of</div>
+            <div>YOUNG-KYOUNG LEE</div>
+          </div>
         </button>
 
         {/* Minimal Desktop Nav - Centered items look more like Ryoji Arai */}
-        <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+        <nav className="hidden lg:flex items-center gap-8 xl:gap-10 absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => (
             <button
               key={item.label}
@@ -68,12 +69,10 @@ export default function Header({ activeView, onViewChange, onOpenContactModal }:
                   onViewChange(item.view);
                 }
               }}
-              className={`text-[9px] font-black tracking-[0.3em] transition-all cursor-pointer py-1 uppercase ${
+              className={`text-[10px] font-black tracking-[0.25em] transition-all cursor-pointer py-1 uppercase ${
                 activeView === item.view
-                  ? 'text-[#B7102A]'
-                  : activeView === 'home' && !isScrolled 
-                    ? 'text-white/60 hover:text-white' 
-                    : 'text-black/30 hover:text-black'
+                  ? 'text-[#0047AB] underline underline-offset-4 decoration-2 scale-105'
+                  : 'text-[#0047AB]/80 hover:text-[#0047AB] hover:scale-105'
               }`}
             >
               {item.label}
@@ -87,9 +86,7 @@ export default function Header({ activeView, onViewChange, onOpenContactModal }:
             className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all cursor-pointer group ${
               isStudioMode
                 ? 'bg-[#B7102A] border-[#B7102A] text-white shadow-lg'
-                : activeView === 'home' && !isScrolled
-                  ? 'border-white/20 text-white hover:border-white/60'
-                  : 'border-black/10 text-black/60 hover:border-black/20 hover:bg-black/5'
+                : 'border-[#0047AB]/30 text-[#0047AB] hover:border-[#0047AB] hover:bg-[#0047AB]/5'
             }`}
           >
             <Sparkles className={`w-3.5 h-3.5 ${isStudioMode ? 'animate-pulse' : 'group-hover:scale-110 transition-transform'}`} />
@@ -101,9 +98,7 @@ export default function Header({ activeView, onViewChange, onOpenContactModal }:
           {/* Mobile menu trigger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden p-2 rounded-full transition-colors ${
-              activeView === 'home' && !isScrolled ? 'text-white' : 'text-black'
-            }`}
+            className="md:hidden p-2 rounded-full transition-colors text-[#0047AB]"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -112,7 +107,7 @@ export default function Header({ activeView, onViewChange, onOpenContactModal }:
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-black/5 px-6 py-8 flex flex-col gap-6 animate-in slide-in-from-top duration-300">
+        <div className="md:hidden bg-white/95 backdrop-blur-md border-b border-black/5 px-6 py-8 flex flex-col gap-6 animate-in slide-in-from-top duration-300">
           {navItems.map((item) => (
             <button
               key={item.label}
@@ -125,7 +120,7 @@ export default function Header({ activeView, onViewChange, onOpenContactModal }:
                 setMobileMenuOpen(false);
               }}
               className={`text-xs font-black tracking-[0.2em] text-left uppercase ${
-                activeView === item.view ? 'text-[#B7102A]' : 'text-black/40'
+                activeView === item.view ? 'text-[#0047AB] underline underline-offset-4' : 'text-[#0047AB]/80'
               }`}
             >
               {item.label}
