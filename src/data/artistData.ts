@@ -193,9 +193,9 @@ export const SKETCHBOOK_NOTES: SketchbookNote[] = [
 
 export const GALLERY_WORKS: GalleryWork[] = [
   {
-    id: 'gallery-1787',
+    id: 'gallery-2828',
     title: '작품 01 (제목 미입력)',
-    image: '/gallery/IMG_1787.JPG',
+    image: '/gallery/IMG_2828.jpg',
     category: 'Original Artwork',
     technique: '재료 입력 (예: 한지 위 석채 및 수묵)',
     size: '사이즈 입력 (예: 60 × 45 cm)',
@@ -203,8 +203,118 @@ export const GALLERY_WORKS: GalleryWork[] = [
     description: '작품에 대한 서정적 해설이나 제작 의도를 입력하는 공간입니다.'
   },
   {
-    id: 'gallery-1788',
+    id: 'gallery-2835',
     title: '작품 02 (제목 미입력)',
+    image: '/gallery/IMG_2835.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-2850',
+    title: '작품 03 (제목 미입력)',
+    image: '/gallery/IMG_2850.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-2889',
+    title: '작품 04 (제목 미입력)',
+    image: '/gallery/IMG_2889.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-2970',
+    title: '작품 05 (제목 미입력)',
+    image: '/gallery/IMG_2970.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-1503',
+    title: '작품 06 (제목 미입력)',
+    image: '/gallery/IMG_1503.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-1502',
+    title: '작품 07 (제목 미입력)',
+    image: '/gallery/IMG_1502.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-1504',
+    title: '작품 08 (제목 미입력)',
+    image: '/gallery/IMG_1504.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-safari',
+    title: '황혼의 사파리',
+    image: '/gallery/hwanghon_safari.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-jjumban-1',
+    title: '작품 10 (제목 미입력)',
+    image: '/gallery/jjumban_1.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-jjumban-2',
+    title: '작품 11 (제목 미입력)',
+    image: '/gallery/jjumban_2.jpg',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-1787',
+    title: '작품 12 (제목 미입력)',
+    image: '/gallery/IMG_1787.JPG',
+    category: 'Original Artwork',
+    technique: '재료 입력',
+    size: '사이즈 입력',
+    price: '가격 입력',
+    description: '작품 설명 입력란입니다.'
+  },
+  {
+    id: 'gallery-1788',
+    title: '작품 13 (제목 미입력)',
     image: '/gallery/IMG_1788.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
@@ -214,7 +324,7 @@ export const GALLERY_WORKS: GalleryWork[] = [
   },
   {
     id: 'gallery-1789',
-    title: '작품 03 (제목 미입력)',
+    title: '작품 14 (제목 미입력)',
     image: '/gallery/IMG_1789.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
@@ -224,7 +334,7 @@ export const GALLERY_WORKS: GalleryWork[] = [
   },
   {
     id: 'gallery-1790',
-    title: '작품 04 (제목 미입력)',
+    title: '작품 15 (제목 미입력)',
     image: '/gallery/IMG_1790.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
@@ -234,7 +344,7 @@ export const GALLERY_WORKS: GalleryWork[] = [
   },
   {
     id: 'gallery-1791',
-    title: '작품 05 (제목 미입력)',
+    title: '작품 16 (제목 미입력)',
     image: '/gallery/IMG_1791.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
@@ -244,7 +354,7 @@ export const GALLERY_WORKS: GalleryWork[] = [
   },
   {
     id: 'gallery-1792',
-    title: '작품 06 (제목 미입력)',
+    title: '작품 17 (제목 미입력)',
     image: '/gallery/IMG_1792.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
@@ -254,7 +364,7 @@ export const GALLERY_WORKS: GalleryWork[] = [
   },
   {
     id: 'gallery-1836',
-    title: '작품 07 (제목 미입력)',
+    title: '작품 18 (제목 미입력)',
     image: '/gallery/IMG_1836.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
@@ -264,7 +374,7 @@ export const GALLERY_WORKS: GalleryWork[] = [
   },
   {
     id: 'gallery-1837',
-    title: '작품 08 (제목 미입력)',
+    title: '작품 19 (제목 미입력)',
     image: '/gallery/IMG_1837.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
@@ -274,7 +384,7 @@ export const GALLERY_WORKS: GalleryWork[] = [
   },
   {
     id: 'gallery-1838',
-    title: '작품 09 (제목 미입력)',
+    title: '작품 20 (제목 미입력)',
     image: '/gallery/IMG_1838.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
@@ -284,7 +394,7 @@ export const GALLERY_WORKS: GalleryWork[] = [
   },
   {
     id: 'gallery-1839',
-    title: '작품 10 (제목 미입력)',
+    title: '작품 21 (제목 미입력)',
     image: '/gallery/IMG_1839.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
@@ -294,7 +404,7 @@ export const GALLERY_WORKS: GalleryWork[] = [
   },
   {
     id: 'gallery-1840',
-    title: '작품 11 (제목 미입력)',
+    title: '작품 22 (제목 미입력)',
     image: '/gallery/IMG_1840.JPG',
     category: 'Original Artwork',
     technique: '재료 입력',
