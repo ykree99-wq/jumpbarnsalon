@@ -64,7 +64,7 @@ const GENRE_CONFIG: Record<GenreFilter, {
 };
 
 export default function BooksSection({ onOpenBookModal }: BooksSectionProps) {
-  const { books, updateImage } = useStudioData();
+  const { books, updateImage, t, language } = useStudioData();
   const [selectedGenre, setSelectedGenre] = useState<GenreFilter>('전체');
 
   // Filter books based on active tab
@@ -74,6 +74,17 @@ export default function BooksSection({ onOpenBookModal }: BooksSectionProps) {
 
   // Group books by genre for categorical presentation when "전체" is selected
   const genresList: GenreFilter[] = ['시 그림책', '드라마', '옛이야기', '우화와 생활', '근간'];
+
+  const getGenreLabel = (g: GenreFilter) => {
+    switch (g) {
+      case '전체': return t('전체', 'ALL');
+      case '시 그림책': return t('시 그림책', 'POETRY BOOKS');
+      case '드라마': return t('드라마', 'DRAMA');
+      case '옛이야기': return t('옛이야기', 'FOLK TALES');
+      case '우화와 생활': return t('우화와 생활', 'FABLES & LIFE');
+      case '근간': return t('근간', 'UPCOMING');
+    }
+  };
 
   return (
     <section className="py-24 sm:py-32 bg-[#F5F5F0] overflow-hidden min-h-screen">
@@ -90,7 +101,7 @@ export default function BooksSection({ onOpenBookModal }: BooksSectionProps) {
           </div>
           
           <h2 className="text-4xl sm:text-6xl font-serif font-black tracking-tight text-[#1C1C18]">
-            이영경의 그림책 모음
+            {t('이영경의 그림책 모음', 'Picture Books Archive')}
           </h2>
 
           {/* Inspirational Quote Box */}
@@ -254,6 +265,10 @@ interface BookCardProps {
 }
 
 function BookCard({ book, config, onOpenBookModal, updateImage }: BookCardProps) {
+  const { t, language } = useStudioData();
+
+  const displayTitle = (language === 'en' && book.englishTitle) ? book.englishTitle : book.title;
+
   return (
     <motion.div
       layout
@@ -273,7 +288,7 @@ function BookCard({ book, config, onOpenBookModal, updateImage }: BookCardProps)
           >
             <img
               src={book.coverImage}
-              alt={book.title}
+              alt={displayTitle}
               className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
               referrerPolicy="no-referrer"
             />
@@ -304,7 +319,7 @@ function BookCard({ book, config, onOpenBookModal, updateImage }: BookCardProps)
             </span>
             {book.year && (
               <span className="text-[10px] font-bold text-black/40">
-                {book.year}년 출간
+                {book.year}{t('년 출간', ' Published')}
               </span>
             )}
           </div>
@@ -314,12 +329,12 @@ function BookCard({ book, config, onOpenBookModal, updateImage }: BookCardProps)
               category="book"
               id={book.id}
               field="title"
-              value={book.title}
+              value={displayTitle}
               tagName="span"
             />
           </h4>
 
-          {book.englishTitle && (
+          {book.englishTitle && language !== 'en' && (
             <p className="text-[11px] font-mono font-medium text-black/40 truncate">
               {book.englishTitle}
             </p>
@@ -354,14 +369,14 @@ function BookCard({ book, config, onOpenBookModal, updateImage }: BookCardProps)
         {book.isUpcoming ? (
           <span className="text-xs font-bold text-purple-600 flex items-center gap-1.5">
             <Sparkles className="w-3.5 h-3.5" />
-            출간 준비 중
+            {t('출간 준비 중', 'Coming Soon')}
           </span>
         ) : (
           <button
             onClick={() => onOpenBookModal(book)}
             className="inline-flex items-center gap-2 text-xs font-black tracking-wider text-[#1C1C18] hover:text-[#B7102A] transition-all cursor-pointer group/btn"
           >
-            EXPLORE WORK
+            {t('작품 상세 정보', 'EXPLORE WORK')}
             <ChevronRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 text-[#B7102A]" />
           </button>
         )}

@@ -11,7 +11,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onOpenBookModal, onOpenWorkshopModal, onOpenContactModal }: HeroSectionProps) {
-  const { slides, updateImage } = useStudioData();
+  const { slides, updateImage, t } = useStudioData();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Audio Player State

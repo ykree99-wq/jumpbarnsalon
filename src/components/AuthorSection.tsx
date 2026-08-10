@@ -7,7 +7,21 @@ import EditableText from './EditableText';
 import { motion } from 'motion/react';
 
 export default function AuthorSection() {
-  const { portraitImage, updateImage, artistProfile } = useStudioData();
+  const { portraitImage, updateImage, artistProfile, t, language } = useStudioData();
+
+  const englishBio = `Young-Kyoung Lee began her journey in picture book illustration in 1993. Inspired by Korean classical literature, she published her flagship picture book "The Seven Friends of the Lady's Chamber" in 1998, followed by renowned works such as "Half Past Four" and "What is a Cat's Life?".
+
+In addition to publishing picture books, she actively engages with readers through art exhibitions, one-person theatrical performances, and lectures. She recently opened "Jumban Salon", a creative studio and character branding space. She was nominated as the Astrid Lindgren Memorial Award (ALMA) candidate representing Korea in 2023 and 2024, and served as President of the Picture Book Association from 2020 to 2024.
+
+She pursues 'fun' and 'delight' as essential values in both life and art.`;
+
+  const englishAwards = [
+    '2023 & 2024 Astrid Lindgren Memorial Award (ALMA) Candidate for Korea',
+    'President of the Picture Book Association (2020 ~ 2024)',
+    'Featured in Elementary School National Language Textbooks (thru 2025)',
+    'Recommended Book by Children\'s Book Research Society ("Half Past Four", "Jumeoki")',
+    'BIB (Bratislava Illustration Biennial) Official Korean Entry'
+  ];
 
   return (
     <section className="py-24 bg-[#F5F5F0] min-h-screen">
@@ -15,7 +29,7 @@ export default function AuthorSection() {
         
         <header className="mb-20 space-y-4">
           <div className="flex items-center gap-4 mb-2">
-            <div className="korean-seal text-[8px] w-6 h-6">작가</div>
+            <div className="korean-seal text-[8px] w-6 h-6">{t('작가', 'ARTIST')}</div>
             <span className="text-[10px] font-black tracking-[0.3em] text-[#B7102A] uppercase">
               ARTIST PROFILE
             </span>
@@ -24,7 +38,10 @@ export default function AuthorSection() {
             YOUNG-KYOUNG LEE
           </h2>
           <p className="text-black/50 text-sm max-w-xl leading-relaxed italic">
-            "한국 전통의 해학을 현대적 색채로 빚어내는 그림책 작가"
+            {t(
+              '"한국 전통의 해학을 현대적 색채로 빚어내는 그림책 작가"',
+              '"Picture book artist crafting Korean traditional humor with modern color palette"'
+            )}
           </p>
         </header>
 
@@ -51,7 +68,7 @@ export default function AuthorSection() {
               
               <div className="absolute -bottom-6 -right-6 bg-[#B7102A] text-white p-8 rounded-[40px] shadow-2xl">
                 <p className="text-3xl font-black font-serif leading-none mb-1">{artistProfile.experienceYears}Y</p>
-                <p className="text-[10px] font-black tracking-widest uppercase opacity-70">Experience</p>
+                <p className="text-[10px] font-black tracking-widest uppercase opacity-70">{t('작품 경력', 'Experience')}</p>
               </div>
             </motion.div>
           </div>
@@ -63,13 +80,17 @@ export default function AuthorSection() {
                 Biography
               </h3>
               <div className="text-black/80 text-base leading-relaxed whitespace-pre-line font-medium space-y-4">
-                <EditableText
-                  category="profile"
-                  id="artist"
-                  field="bio"
-                  value={artistProfile.bio}
-                  tagName="p"
-                />
+                {language === 'en' ? (
+                  <p>{englishBio}</p>
+                ) : (
+                  <EditableText
+                    category="profile"
+                    id="artist"
+                    field="bio"
+                    value={artistProfile.bio}
+                    tagName="p"
+                  />
+                )}
               </div>
             </div>
 
@@ -79,7 +100,7 @@ export default function AuthorSection() {
                 <h4 className="text-xs font-black tracking-widest uppercase">Awards & Honors</h4>
               </div>
               <ul className="space-y-4">
-                {artistProfile.awards.map((award, idx) => (
+                {(language === 'en' ? englishAwards : artistProfile.awards).map((award, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-xs text-black/60 font-bold leading-relaxed">
                     <CheckCircle2 className="w-4 h-4 text-[#B7102A] shrink-0 mt-0.5" />
                     {award}

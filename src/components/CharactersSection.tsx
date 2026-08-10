@@ -12,7 +12,7 @@ interface CharactersSectionProps {
 export default function CharactersSection({
   onOpenContactModal,
 }: CharactersSectionProps) {
-  const { characters, updateImage } = useStudioData();
+  const { characters, updateImage, t } = useStudioData();
 
   return (
     <section className="py-24 bg-white overflow-hidden">
@@ -31,15 +31,18 @@ export default function CharactersSection({
               K-CUTY FOLK IP
             </h2>
             <p className="text-black/50 text-sm max-w-xl leading-relaxed">
-              그림책 속 주인공들의 라인업입니다. 이영경 작가의 독창적이 캐릭터 IP를 통해 특별한 협업의 가능성을 만나보세요.
+              {t(
+                '그림책 속 주인공들의 라인업입니다. 이영경 작가의 독창적 캐릭터 IP를 통해 특별한 협업의 가능성을 만나보세요.',
+                'Lineup of character IPs from Young-Kyoung Lee\'s picture books. Explore unique licensing and collaboration possibilities.'
+              )}
             </p>
           </div>
           
           <button
             onClick={onOpenContactModal}
-            className="group px-8 py-4 bg-black text-white text-[10px] font-black tracking-widest rounded-full hover:bg-[#B7102A] transition-all cursor-pointer flex items-center gap-3 self-start lg:self-auto"
+            className="group px-8 py-4 bg-black text-white text-[10px] font-black tracking-widest rounded-full hover:bg-[#B7102A] transition-all cursor-pointer flex items-center gap-3 self-start lg:self-auto uppercase"
           >
-            IP LICENSING & COLLABORATION
+            {t('IP 라이선싱 & 협업 문의', 'IP LICENSING & COLLABORATION')}
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
         </div>
