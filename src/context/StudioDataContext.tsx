@@ -16,7 +16,7 @@ import {
 } from '../data/artistData';
 import { Exhibition, PictureBook, IPCharacter, SketchbookNote, GalleryWork } from '../types';
 
-const STORAGE_KEY = 'youngkyoung_studio_data_v14';
+const STORAGE_KEY = 'youngkyoung_studio_data_v25';
 
 export type Language = 'ko' | 'en';
 

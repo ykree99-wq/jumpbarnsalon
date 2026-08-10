@@ -14,7 +14,7 @@ interface BookPreviewModalProps {
 }
 
 export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }: BookPreviewModalProps) {
-  const { updateImage } = useStudioData();
+  const { updateImage, t, language } = useStudioData();
 
   if (!isOpen) return null;
 
@@ -30,6 +30,8 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
     summary: '아씨가 잠든 사이 일곱 바느질 도구들이 각자 자신이 으뜸이라 자랑하지만, 서로가 합쳐져야 예쁜 옷이 완성됨을 깨닫는 유쾌한 해학극.',
     coverImage: '/books/[IMG-6].jpg',
   };
+
+  const currentTitle = (language === 'en' && displayBook.englishTitle) ? displayBook.englishTitle : displayBook.title;
 
   return (
     <AnimatePresence>
@@ -63,7 +65,7 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
             >
               <img
                 src={displayBook.coverImage}
-                alt={displayBook.title}
+                alt={currentTitle}
                 className="max-w-full max-h-[380px] object-contain shadow-2xl rounded-xl transform group-hover:scale-105 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
@@ -97,12 +99,12 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
                       category="book"
                       id={displayBook.id}
                       field="title"
-                      value={displayBook.title}
+                      value={currentTitle}
                       tagName="span"
                     />
                   </h2>
                 </div>
-                {displayBook.englishTitle && (
+                {displayBook.englishTitle && language !== 'en' && (
                   <div className="text-black/40 font-mono text-xs font-bold uppercase tracking-widest">
                     <EditableText
                       category="book"
@@ -162,7 +164,7 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
                 </div>
                 {displayBook.summary && (
                   <div className="p-4 bg-white/70 rounded-2xl border border-black/5 text-xs text-black/60 leading-relaxed">
-                    <span className="font-bold text-[#B7102A] block mb-1">주요 줄거리</span>
+                    <span className="font-bold text-[#B7102A] block mb-1">{t('주요 줄거리', 'Plot Summary')}</span>
                     <EditableText
                       category="book"
                       id={displayBook.id}
@@ -176,7 +178,7 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
 
               {displayBook.characters && displayBook.characters.length > 0 && (
                 <div className="pt-2">
-                  <span className="text-[10px] font-black text-black/40 uppercase tracking-widest block mb-2">등장 캐릭터</span>
+                  <span className="text-[10px] font-black text-black/40 uppercase tracking-widest block mb-2">{t('등장 캐릭터', 'Main Characters')}</span>
                   <div className="flex flex-wrap gap-1.5">
                     {displayBook.characters.map((char, i) => (
                       <span key={i} className="px-2.5 py-1 bg-black/5 rounded-full text-xs font-medium text-black/70">
@@ -193,13 +195,13 @@ export default function BookPreviewModal({ isOpen, onClose, onOrderClick, book }
                   className="flex-1 px-8 py-4 bg-[#B7102A] hover:bg-[#92001C] text-white rounded-2xl font-black text-sm transition-all shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <ShoppingBag className="w-4 h-4" />
-                  소장 및 구매 문의
+                  {t('소장 및 구매 문의', 'Purchase & Inquire')}
                 </button>
                 <button
                   onClick={onClose}
                   className="px-6 py-4 bg-white border border-black/10 hover:bg-black/5 text-black rounded-2xl font-black text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  닫기
+                  {t('닫기', 'Close')}
                 </button>
               </div>
             </div>

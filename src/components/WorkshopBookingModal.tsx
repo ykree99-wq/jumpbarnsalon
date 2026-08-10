@@ -10,7 +10,7 @@ interface WorkshopBookingModalProps {
 }
 
 export default function WorkshopBookingModal({ isOpen, onClose }: WorkshopBookingModalProps) {
-  const { notify } = useStudioData();
+  const { notify, t } = useStudioData();
   const [selectedWorkshopId, setSelectedWorkshopId] = useState<string>(WORKSHOP_SCHEDULES[0]?.id || 'atelier-master');
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [userName, setUserName] = useState('');
@@ -36,7 +36,7 @@ export default function WorkshopBookingModal({ isOpen, onClose }: WorkshopBookin
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedDate || !userName || !userPhone) {
-      notify('수강 날짜, 신청자 성함, 연락처를 입력해 주세요.', 'error');
+      notify(t('수강 날짜, 신청자 성함, 연락처를 입력해 주세요.', 'Please fill in date, your name, and phone number.'), 'error');
       return;
     }
     setIsSubmitted(true);
@@ -63,7 +63,7 @@ export default function WorkshopBookingModal({ isOpen, onClose }: WorkshopBookin
             </div>
             <div>
               <h3 className="font-serif font-bold text-base text-[#1C1C18]">
-                이영경 창작스튜디오 워크숍 & 클래스 신청
+                {t('이영경 창작스튜디오 워크숍 & 클래스 신청', 'Young-Kyoung Lee Studio Workshop Booking')}
               </h3>
               <p className="text-[11px] text-[#755700]">
                 {currentWorkshop.title}

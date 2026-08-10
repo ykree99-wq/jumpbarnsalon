@@ -7,8 +7,50 @@ import EditableText from './EditableText';
 import { GalleryWork } from '../types';
 
 export default function WorkGallerySection() {
-  const { galleryWorks, updateImage, t } = useStudioData();
+  const { galleryWorks, updateImage, t, language } = useStudioData();
   const [selectedLightboxWork, setSelectedLightboxWork] = useState<GalleryWork | null>(null);
+
+  const getWorkDisplayTitle = (work: GalleryWork, index: number) => {
+    if (language === 'en') {
+      if (work.title && work.title.includes('작품')) {
+        const numStr = (index + 1 < 10 ? `0${index + 1}` : `${index + 1}`);
+        return `Artwork ${numStr} (Title pending)`;
+      }
+      if (work.title === '황혼의 사파리') return 'Twilight Safari';
+    }
+    return work.title;
+  };
+
+  const getTechnique = (tech?: string) => {
+    if (!tech || tech === '재료 입력' || tech.startsWith('재료 입력')) {
+      return t('재료 입력 (예: 한지 위 석채 및 수묵)', 'Medium info (e.g. Hanji & Ink)');
+    }
+    return tech;
+  };
+
+  const getSize = (s?: string) => {
+    if (!s || s === '사이즈 입력' || s.startsWith('사이즈 입력')) {
+      return t('사이즈 입력 (예: 60 × 45 cm)', 'Size info (e.g. 60 × 45 cm)');
+    }
+    return s;
+  };
+
+  const getPrice = (p?: string) => {
+    if (!p || p === '가격 입력' || p.startsWith('가격 입력')) {
+      return t('가격 입력 (예: 가격 문의)', 'Inquire Price');
+    }
+    return p;
+  };
+
+  const getDescription = (desc?: string) => {
+    if (!desc || desc.includes('작품에 대한 서정적 해설') || desc.includes('작품 설명 입력란')) {
+      return t(
+        '작품에 대한 서정적 해설이나 제작 의도를 입력하는 공간입니다.',
+        'A space to describe artistic notes and inspirations for this artwork.'
+      );
+    }
+    return desc;
+  };
 
   return (
     <section className="py-24 sm:py-32 bg-[#F5F5F0] min-h-screen">
@@ -57,7 +99,7 @@ export default function WorkGallerySection() {
                   >
                     <img
                       src={work.image}
-                      alt={work.title}
+                      alt={getWorkDisplayTitle(work, index)}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
@@ -92,7 +134,7 @@ export default function WorkGallerySection() {
                         category="gallery"
                         id={work.id}
                         field="title"
-                        value={work.title}
+                        value={getWorkDisplayTitle(work, index)}
                         tagName="span"
                       />
                     </h3>
@@ -109,7 +151,7 @@ export default function WorkGallerySection() {
                           category="gallery"
                           id={work.id}
                           field="technique"
-                          value={work.technique || t('재료 입력', 'Medium info')}
+                          value={getTechnique(work.technique)}
                           tagName="span"
                         />
                       </div>
@@ -124,7 +166,7 @@ export default function WorkGallerySection() {
                           category="gallery"
                           id={work.id}
                           field="size"
-                          value={work.size || t('사이즈 입력', 'Size info')}
+                          value={getSize(work.size)}
                           tagName="span"
                         />
                       </div>
@@ -139,7 +181,7 @@ export default function WorkGallerySection() {
                           category="gallery"
                           id={work.id}
                           field="price"
-                          value={work.price || t('가격 입력', 'Inquire Price')}
+                          value={getPrice(work.price)}
                           tagName="span"
                         />
                       </div>
@@ -152,7 +194,7 @@ export default function WorkGallerySection() {
                       category="gallery"
                       id={work.id}
                       field="description"
-                      value={work.description || '작품 설명 입력란입니다.'}
+                      value={getDescription(work.description)}
                       tagName="p"
                     />
                   </div>
