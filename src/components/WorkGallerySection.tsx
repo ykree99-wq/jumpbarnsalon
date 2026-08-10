@@ -7,7 +7,7 @@ import EditableText from './EditableText';
 import { GalleryWork } from '../types';
 
 export default function WorkGallerySection() {
-  const { galleryWorks, updateImage } = useStudioData();
+  const { galleryWorks, updateImage, t } = useStudioData();
   const [selectedLightboxWork, setSelectedLightboxWork] = useState<GalleryWork | null>(null);
 
   return (
@@ -30,9 +30,10 @@ export default function WorkGallerySection() {
           <div className="w-16 h-1 bg-[#B7102A] mx-auto rounded-full mt-2" />
 
           <p className="text-xs sm:text-sm text-black/60 font-medium leading-relaxed max-w-xl mx-auto pt-2">
-            이영경 작가의 소중한 원화 및 예술 작품 아카이브입니다.
-            <br />
-            아래 각 작품의 캡션(제목, 재료, 사이즈, 가격)은 텍스트를 클릭하여 바로 수정/입력하실 수 있습니다.
+            {t(
+              '이영경 작가의 소중한 원화 및 예술 작품 아카이브입니다. 아래 각 작품의 캡션(제목, 재료, 사이즈, 가격)은 텍스트를 클릭하여 바로 수정/입력하실 수 있습니다.',
+              'Precious original artworks and collection archive of artist Young-Kyoung Lee. Click on any caption text (Title, Medium, Size, Price) to edit directly.'
+            )}
           </p>
         </header>
 
@@ -67,7 +68,7 @@ export default function WorkGallerySection() {
                   <button
                     onClick={() => setSelectedLightboxWork(work)}
                     className="absolute top-4 right-4 z-20 p-2.5 bg-white/90 hover:bg-white text-[#1C1C18] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer transform hover:scale-110"
-                    title="원본 크게 보기"
+                    title={t("원본 크게 보기", "View Full Image")}
                   >
                     <Maximize2 className="w-4 h-4" />
                   </button>
@@ -102,13 +103,13 @@ export default function WorkGallerySection() {
                     {/* 재료 (Medium / Technique) */}
                     <div className="flex items-center gap-2.5">
                       <Palette className="w-3.5 h-3.5 text-[#B7102A] shrink-0" />
-                      <span className="font-bold text-black/40 w-12 shrink-0">재료:</span>
+                      <span className="font-bold text-black/40 w-14 shrink-0">{t('재료:', 'Medium:')}</span>
                       <div className="font-medium text-black/80 flex-1 truncate">
                         <EditableText
                           category="gallery"
                           id={work.id}
                           field="technique"
-                          value={work.technique || '재료 입력'}
+                          value={work.technique || t('재료 입력', 'Medium info')}
                           tagName="span"
                         />
                       </div>
@@ -117,13 +118,13 @@ export default function WorkGallerySection() {
                     {/* 사이즈 (Size) */}
                     <div className="flex items-center gap-2.5">
                       <Ruler className="w-3.5 h-3.5 text-[#00658D] shrink-0" />
-                      <span className="font-bold text-black/40 w-12 shrink-0">사이즈:</span>
+                      <span className="font-bold text-black/40 w-14 shrink-0">{t('사이즈:', 'Size:')}</span>
                       <div className="font-medium text-black/80 flex-1 truncate">
                         <EditableText
                           category="gallery"
                           id={work.id}
                           field="size"
-                          value={work.size || '사이즈 입력'}
+                          value={work.size || t('사이즈 입력', 'Size info')}
                           tagName="span"
                         />
                       </div>
@@ -132,13 +133,13 @@ export default function WorkGallerySection() {
                     {/* 가격 (Price) */}
                     <div className="flex items-center gap-2.5 pt-1 border-t border-black/5">
                       <DollarSign className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span className="font-bold text-black/40 w-12 shrink-0">가격:</span>
+                      <span className="font-bold text-black/40 w-14 shrink-0">{t('가격:', 'Price:')}</span>
                       <div className="font-bold text-emerald-700 flex-1 truncate">
                         <EditableText
                           category="gallery"
                           id={work.id}
                           field="price"
-                          value={work.price || '가격 입력'}
+                          value={work.price || t('가격 입력', 'Inquire Price')}
                           tagName="span"
                         />
                       </div>

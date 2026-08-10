@@ -18,11 +18,16 @@ import { Exhibition, PictureBook, IPCharacter, SketchbookNote, GalleryWork } fro
 
 const STORAGE_KEY = 'youngkyoung_studio_data_v14';
 
+export type Language = 'ko' | 'en';
+
 interface StudioDataContextType {
   user: User | null;
   loading: boolean;
   signIn: () => Promise<void>;
   signOut: () => Promise<void>;
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (ko: string, en: string) => string;
   isEditMode: boolean;
   setIsEditMode: (val: boolean) => void;
   isStudioMode: boolean;
@@ -51,6 +56,26 @@ const StudioDataContext = createContext<StudioDataContextType | undefined>(undef
 export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [language, setLanguageState] = useState<Language>(() => {
+    try {
+      const saved = localStorage.getItem('youngkyoung_lang');
+      return (saved === 'en' || saved === 'ko') ? saved : 'ko';
+    } catch {
+      return 'ko';
+    }
+  });
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    try {
+      localStorage.setItem('youngkyoung_lang', lang);
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+
+  const t = (ko: string, en: string) => (language === 'en' ? en : ko);
+
   const [isEditMode, setIsEditMode] = useState<boolean>(true);
   const [isStudioMode, setIsStudioMode] = useState<boolean>(false);
   const [slides, setSlides] = useState(SLIDESHOW_ARTWORKS);
@@ -320,6 +345,9 @@ export const StudioDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         loading,
         signIn,
         signOut: signInSignOut,
+        language,
+        setLanguage,
+        t,
         isEditMode,
         setIsEditMode,
         isStudioMode,
