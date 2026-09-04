@@ -9,9 +9,12 @@ interface ExhibitionsSectionProps {
   onOpenContactModal: () => void;
 }
 
-const STORAGE_KEY_STUDIO_NEWS = 'youngkyoung_studio_news_frames_v10';
+const STORAGE_KEY_STUDIO_NEWS = 'youngkyoung_studio_news_frames_v11';
 
 const DEFAULT_NEWS_FRAMES = [
+  '/gallery/news/news-aladin-1.png',
+  '/gallery/news/news-aladin-2.png',
+  '/gallery/news/news-aladin-3.png',
   '/gallery/news/frame1.jpg',
   '/gallery/news/frame2.jpg',
   '/gallery/news/frame3.jpg',
@@ -29,7 +32,7 @@ export default function ExhibitionsSection({ onOpenWorkshopModal, onOpenContactM
       const saved = localStorage.getItem(STORAGE_KEY_STUDIO_NEWS);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length === 7) return parsed;
+        if (Array.isArray(parsed) && parsed.length === DEFAULT_NEWS_FRAMES.length) return parsed;
       }
     } catch (e) {
       console.warn('Failed to load studio news frames from localStorage', e);
@@ -130,7 +133,7 @@ export default function ExhibitionsSection({ onOpenWorkshopModal, onOpenContactM
                         <img
                           src={imgUrl}
                           alt={`Studio News Frame ${index + 1}`}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${imgUrl.includes("news-aladin-1") ? "object-contain bg-[#FAF8F3]" : "object-cover"}`}
                           referrerPolicy="no-referrer"
                         />
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white gap-2 pointer-events-none">
@@ -149,7 +152,7 @@ export default function ExhibitionsSection({ onOpenWorkshopModal, onOpenContactM
                       FRAME {index + 1}
                     </div>
 
-                    {index === 6 && (
+                    {(imgUrl.includes("frame7") || imgUrl.includes("toyostudio")) && (
                       <a
                         href="/gallery/news/toyostudio.pdf"
                         target="_blank"
